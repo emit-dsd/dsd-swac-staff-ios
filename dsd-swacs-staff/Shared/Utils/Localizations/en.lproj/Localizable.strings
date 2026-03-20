@@ -1,0 +1,531 @@
+/* 
+  Localizable.strings
+  dsd-swacs-staff
+
+  Created by Andy on 13/8/2025.
+  
+*/
+
+/* General */
+"general_done" = "Done";
+"general_cancel" = "Cancel";
+"general_confirm" = "Confirm";
+"general_back" = "Back";
+"general_reset" = "Reset";
+"general_retry" = "Retry";
+"general_submit" = "Submit";
+"general_yes" = "Yes";
+"general_no" = "No";
+"general_continue" = "Continue";
+"general_next" = "Next";
+"general_no_results" = "No Results Found";
+"general_no_more_data" = "No More Data";
+"general_alertTitle_no_network" = "No Network Connection";
+"general_alertMessage_no_network" = "Please check your internet connection and try again.";
+"general_alertTitle_server_error" = "Server Error";
+
+/* language */
+"language_label_english" = "ENG";
+"language_label_traditional_chinese" = "繁中";
+
+/* Login */
+"login_label_department_title" = "Drainage Service Department";
+"login_label_system_title" = "SWAC System";
+"login_label_login_name" = "Login Name";
+"login_label_password" = "Password";
+"login_button_login" = "Login";
+"login_label_copyright" = "Copyright © 2025 (DSD). All Rights Reserved.";
+"login_label_version" = "Version";
+"login_alertTitle_login_expired" = "Login expired";
+"login_alertMessage_login_expired" = "Your login has expired. Please log in again.";
+
+/* Location Permission */
+"location_alertTitle_location_required" = "Location Service Required";
+"location_alertMessage_location_required" = "This feature requires access to your location. Please enable location access in Setting.";
+"location_button_settings" = "Go to Setting";
+
+/* Camera Permission */
+"camera_alertTitle_camera_required" = "Camera Permission Required";
+"camera_alertMessage_camera_required" = "This feature requires your camera. Please enable camera access in Setting.";
+"camera_button_settings" = "Go to Setting";
+
+/* Tab Bar */
+"tab_bar_button_home" = "Home";
+"tab_bar_button_swac" = "SWAC";
+"tab_bar_button_siteDiary" = "Site Diary";
+"tab_bar_button_safety" = "Safety";
+"tab_bar_button_setting" = "Setting";
+
+/* DateFilter */
+"date_filter_label_title" = "Filter";
+"date_filter_label_title_select_date" = "Select Date";
+"date_filter_label_receive_time_from" = "Receive Time From";
+"date_filter_label_to" = "To";
+"date_filter_label_pick_date" = "Pick a date";
+"date_filter_button_show_result" = "Show Result(s)";
+"date_filter_label_date" = "Date";
+
+/* Notification */
+"notification_label_notification" = "Notification";
+"notification_label_total_count" = "Total {R1} item(s)";
+"notification_label_remark" = "Remarks";
+"notification_button_mark_as_read" = "Mark as read";
+"notification_label_no_notification" = "No Notification";
+"notification_placeholder_search" = "Search Notification";
+"notification_label_time_today" = "Today";
+"notification_label_time_yesterday" = "Yesterday";
+"notification_label_time_just_now" = "Just now";
+"notification_label_time_seconds_ago" = "{R1} seconds ago";
+"notification_label_time_minutes_ago" = "{R1} mins ago";
+"notification_label_time_hours_ago" = "{R1} hours ago";
+"notification_label_time_days_ago" = "{R1} days ago";
+"notification_label_time_weeks_ago" = "{R1} weeks ago";
+"notification_label_time_months_ago" = "{R1} months ago";
+"notification_label_time_year_ago" = "{R1} year ago";
+
+/* Home */
+"home_label_welecome_back" = "Welcome back,";
+
+/* Quick Action */
+"quick_action_label_title" = "Quick Action";
+"quick_action_button_scan_qr_code" = "Sign In/Out";
+"quick_action_button_new_site_diary" = "New Site Diary";
+"quick_action_button_safety_inspection" = "Safety Inspection";
+"quick_action_button_brief_incident_report" = "Incident Report";
+"quick_action_button_scan_qr_code_check" = "QR Code Check";
+"quick_action_label_sign_title" = "QR Code Sign In/Out";
+"quick_action_button_sign_in" = "Sign In";
+"quick_action_button_sign_out" = "Sign Out";
+"quick_action_label_select_swac" = "Select SWAC";
+"quick_action_label_no_right_of_submission" = "No right of submission";
+
+/* Quick Action - Scan Sign In/Out */
+"scan_qr_code_label_sign_in_title" = "QR Code Sign In";
+"scan_qr_code_label_sign_in_successful" = "Sign-In Successful";
+"scan_qr_code_button_continue_scan" = "Continue to Scan";
+"scan_qr_code_label_sign_out_title" = "QR Code Sign Out";
+"scan_qr_code_label_sign_out_successful" = "Sign-Out Successful";
+"scan_qr_code_label_swac_info" = "SWAC information";
+"scan_qr_code_label_swac_no" = "SWAC No.";
+"scan_qr_code_label_contractor" = "Contractor";
+"scan_qr_code_label_working_team_member" = "Working Team Member";
+"scan_qr_code_label_role" = "Role";
+"scan_qr_code_alertButton_retry" = "Retry";
+"scan_qr_code_alertButton_back" = "Back";
+"scan_qr_code_failed_alertTitle_msg" = "QR Code Scan Failed";
+"scan_qr_code_failed_alertMessage_msg" = "The QR code is invalid or wrong QR code. Please scan a valid QR code to record your attendance.";
+"scan_qr_code_label_swac_check_title" = "SWAC QR Code Check";
+"scan_qr_code_label_startTime" = "Start Time";
+"scan_qr_code_label_endTime" = "End Time";
+"scan_qr_code_label_verify_success_msg" = "This is a valid SWAC Access QR Code";
+"scan_qr_code_label_verify_fail_msg" = "This is an invalid SWAC Access QR Code (Out of approved time range)";
+"scan_qr_code_label_verify_wrong_format_msg" = "This is an invalid SWAC Access QR Code (Wrong Format)";
+"scan_qr_code_label_gallery" = "Gallery";
+"scan_qr_code_label_pdf" = "PDF";
+
+/* Quick Action - Incident Report List */
+"incident_report_list_label_tiltle" = "Incident Report";
+"incident_report_list_label_header" = "Incident Report List";
+"incident_report_list_label_total_count" = "Total {R1} item(s)";
+"incident_report_list_label_reference_no" = "Reference No.";
+"incident_report_list_label_incident_date" = "Incident date";
+"incident_report_list_label_create_date" = "Create date";
+"incident_report_list_label_swac_no" = "SWAC No.";
+"incident_report_list_label_location" = "Location";
+
+/* New Incident Report */
+"new_incident_report_label_tiltle" = "New Incident Report";
+"new_incident_report_label_incident_report" = "Incident Report";
+"new_incident_report_label_reference_no" = "Reference No.";
+"new_incident_report_label_date" = "Date";
+"new_incident_report_label_time" = "Time";
+"new_incident_report_label_pick_date" = "Pick a date";
+"new_incident_report_label_pick_time" = "Pick a time";
+"new_incident_report_label_swac_no" = "SWAC No.";
+"new_incident_report_label_swac_no_optional" = "(Optional)";
+"new_incident_report_label_location" = "Location";
+"new_incident_report_label_incident" = "Incident";
+"new_incident_report_label_cause_of_accident" = "Cause of accident";
+"new_incident_report_label_any_casualties" = "Any casualties";
+"new_incident_report_label_any_medias" = "Any medias";
+"new_incident_report_label_any_paramedics" = "Any paramedics";
+"new_incident_report_label_any_fire_force" = "Any fire force";
+"new_incident_report_label_any_polices" = "Any polices";
+"new_incident_report_label_dsd_contact_person" = "DSD Contact Person";
+"new_incident_report_label_dsd_contractor" = "Contractor";
+"new_incident_report_label_dsd_contractor_ifAny" = "(If any)";
+"new_incident_report_alertTitle_msg" = "Incident Report Submitted";
+"new_incident_report_alertMessage_msg" = "Inputted Incident Report 
+has been recorded.";
+"new_incident_report_label_copy_to_clipboard" = "Copy Report to Clipboard";
+"new_incident_report_label_copied" = "Copied to clipboard";
+
+/* Today's SWAC Section */
+"today_swac_sectionTitle_main" = "Today’s Valid SWAC";
+"today_swac_button_start_work" = "Start Work";
+"today_swac_button_reject" = "Reject";
+"start_work_alertTitle_msg" = "Start work Confirmation";
+"start_work_alertMessage_msg" = "This action cannot be undone.";
+"start_work_alertTitle_reject_msg" = "Reject work Confirmation";
+"start_work_alertMessage_reject_msg" = "This action cannot be undone.";
+"start_work_button_start" = "Start";
+"start_work_button_confirm_reject" = "Confirm Reject";
+
+/* swac status */
+"swac_status_label_all" = "All SWAC";
+"swac_status_label_draft" = "Draft";
+"swac_status_label_submitted" = "Submitted";
+"swac_status_label_vetting" = "Safety Vetting";
+"swac_status_label_pending" = "Pending Approval";
+"swac_status_label_rejected" = "Rejected";
+"swac_status_label_approved" = "Approved";
+"swac_status_label_valid_swac" = "Vaild SWAC";
+"swac_status_label_registered_site_work" = "Registered Site Work";
+
+/* CSWR Status */
+"cswr_status_label_pending_for_acknowledgement" = "Pending for acknowledgement of entry";
+"cswr_status_label_pending_for_mps2_acknowledgement" = "Pending for MPS2 acknowledgement of entry";
+"cswr_status_label_pending_for_approval" = "Pending for approval of entry";
+"cswr_status_label_confirmed_entry" = "Confirmed entry";
+"cswr_status_label_pending_for_mps1_checkout" = "Pending for MPS1 checkout";
+"cswr_status_label_completed" = "Completed";
+"cswr_status_label_rejected" = "Rejected";
+"cswr_status_label_recess_in_progress" = "Recess in progress";
+
+/* DayTypeChip */
+"day_type_chip_label_weekday" = "Weekday";
+"day_type_chip_label_weekend" = "Weekend";
+
+/* SWAC Card */
+"swac_card_label_contract_title" = "Contract Title";
+"swac_card_label_swac_no" = "SWAC No.";
+"swac_card_label_contract_no" = "Contract No.";
+"swac_card_label_work_order_no" = "Work Order No.";
+"swac_card_label_working_team_member" = "Working Team Member";
+"swac_card_label_post" = "Post";
+"swac_card_label_reference_number" = "Reference No.";
+"swac_card_label_contractor_name" = "Contractor Name";
+"swac_card_label_contractor_phone" = "Contractor Phone Number";
+"swac_card_label_location" = "Location";
+"swac_card_label_regional_control_centre" = "Regional Control Centre";
+"swac_card_label_project_in_charge" = "Project In Charge";
+"swac_card_label_site_in_charge" = "Site In Charge";
+"swac_card_label_works_detail" = "Works Detail";
+"swac_card_label_cswr_status" = "CSWR Status (Registered Site Work)";
+
+/* SWAC Main  */
+"swac_main_title_main" = "Site Work Authorisation Certificate";
+"swac_main_label_total_count" = "Total {R1} item(s)";
+"swac_main_placeholder_swac" = "Search SWAC No.";
+"swac_main_label_empty_prompt_title" = "Please select SWAC Filter/ Search SWAC No.";
+
+/* SWAC Detail */
+"swac_detail_tab_button_profile" = "Profile";
+"swac_detail_tab_button_attendance" = "Attendance";
+"swac_detail_label_signed_in" = "Signed in";
+"swac_detail_label_signed_out" = "Signed out";
+"swac_detail_label_startTime" = "swac_detail_label_startTime";
+"swac_detail_label_endTime" = "End Date";
+"swac_detail_button_approve" = "Approve";
+"swac_detail_button_endorse" = "Endorse";
+"swac_detail_button_revert" = "Revert";
+"swac_detail_button_reject" = "Reject";
+"swac_detail_label_remark" = "Remarks";
+"swac_detail_placeholder_type_here" = "Please type here...";
+"swac_detail_button_confirm_pass" = "Confirm Pass";
+"swac_detail_button_confrim_fail" = "Confirm Fail";
+"swac_detail_alertTitle_vetting_passed" = "SWAC Safety Vetting Passed";
+"swac_detail_alertMessage_vetting_passed_hint" = "Your selected SWAC  Safety Vetting
+has been passed.";
+"swac_detail_alertTitlevetting_failed_hint" = "SWAC Safety Vetting Failed";
+"swac_detail_alertMessage_vetting_failed_hint" = "Your selected SWAC  Safety Vetting
+has been failed.";
+
+/* SWAC Detail Worker Info */
+"swac_detail_worker_info_label_staff_detail" = "Staff Detail";
+"swac_detail_worker_info_label_sign_in_out_record" = "Sign In/Out Record";
+"swac_detail_worker_info_label_dial_staff" = "Dial Staff";
+
+/* Attendance */
+"attendance_label_total_count" = "Total {R1} item(s)";
+
+/* Attendance Detail */
+"attendance_detail_label_total_count" = "Total {R1} item(s)";
+"attendance_detail_label_no_record" = "No Attendance Record";
+"attendance_detail_label_today" = "Today";
+
+/*  Staff Card  */
+"staff_card_label_name" = "Name";
+"staff_card_label_role" = "Role";
+"staff_card_label_mobile_phone_number" = "Mobile Number";
+"staff_card_label_sign_in" = "Sign In";
+"staff_card_label_sign_out" = "Sign Out";
+"staff_card_label_remarks" = "Remarks";
+"staff_card_status_signed_in" = "Signed In";
+"staff_card_status_signed_out" = "Signed Out";
+"staff_card_status_no_record" = "No Record";
+
+/* Site Diary Status */
+"site_diary_status_label_pending_dsd_endorsement" = "Pending DSD staff Endorse";
+"site_diary_status_label_pending_contractor_endorsement" = "Pending Contractor Endorse";
+"site_diary_status_label_pending_dsd_approval" = "Pending CTO Approved";
+"site_diary_status_label_rejected" = "Rejected";
+"site_diary_status_label_archived" = "Approved";
+"site_diary_filter_status_label_all" = "All";
+"site_diary_filter_status_label_pending_dsd_endorsement" = "Pending DSD";
+"site_diary_filter_status_label_contractor_endorsement" = "Pending Contractor";
+"site_diary_filter_status_label_dsd_approval" = "Pending CTO";
+"site_diary_filter_status_label_rejected" = "Rejected";
+"site_diary_filter_status_label_archived" = "Approved";
+
+/* Site Diary Main */
+"site_diary_main_label_select_swac" = "Select SWAC";
+"site_diary_main_label_total_count" = "Total {R1} item(s)";
+"site_diary_main_label_filter_show" = "Show {R1} to {R2} item(s)";
+"site_diary_main_placeholder_swac" = "Search SWAC No.";
+"site_diary_main_label_contract_title" = "Contract Title";
+"site_diary_main_label_contractor_name" = "Contractor Name";
+"site_diary_main_label_swac_no" = "SWAC No.";
+"site_diary_main_label_contract_no" = "Contract No.";
+"site_diary_main_label_work_order_no" = "Work Order No.";
+
+/* Site Diary List */
+"site_diary_list_label_name_of_contractor" = "Name of Contractor";
+"site_diary_list_label_work_order_no" = "Work Order No.";
+"site_diary_list_label_name_of_plant" = "Name of Plant";
+"site_diary_list_placeholder_search_site_diary" = "Search Site Diary";
+
+/* Site Diary Card */
+"site_diary_card_label_brief_description" = "Brief Description";
+"site_diary_card_label_contractor_rep" = "Contractor's Rep.";
+"site_diary_card_label_dsd_rep" = "DSD's Rep.";
+"site_diary_card_label_status_of_weather" = "Status of Weather";
+"site_diary_card_label_contractor_signed" = "Contractor\nSigned";
+"site_diary_card_label_staff_signed" = "DSD Staff\nSigned";
+"site_diary_card_label_er_signed" = "ER\nSigned";
+
+/* Site Diary Detail */
+"site_diary_detail_title" = "Site Diary Entry";
+"site_diary_detail_tab_button_diary" = "Diary";
+"site_diary_detail_tab_button_comment" = "Comment";
+"site_diary_detail_label_date" = "Date";
+"site_diary_detail_label_contractor_rep" = "Contractor's Rep.";
+"site_diary_detail_label_dsd_rep" = "DSD's Rep.";
+"site_diary_detail_label_status" = "Status";
+"site_diary_detail_label_weather_status" = "Weather Status";
+"site_diary_detail_label_weather_fine" = "Fine";
+"site_diary_detail_label_weather_cloudy" = "Cloudy";
+"site_diary_detail_label_weather_rainy" = "Rainy";
+"site_diary_detail_label_brief_description" = "Brief Description of Work Activities Plant, Material & Labour Usage";
+"site_diary_detail_label_max_words" = "(Max 100 words)";
+"site_diary_detail_placeholder_type_here" = "Please type here...";
+"site_diary_detail_label_image" = "Image";
+"site_diary_detail_label_remark" = "Remarks";
+"site_diary_detail_label_current_empty" = "Current Empty";
+"site_diary_detail_label_instructions_representative" = "Instructions to Contractor’s Representative / Remarks";
+"site_diary_detail_label_response_representative" = "Response from Contractor’s Representative / Remarks";
+"site_diary_detail_button_send_back_and_instruct" = "Send Back & Instruct Contractor";
+"site_diary_detail_label_instructions_to_contractor" = "Instructions to Contractor";
+"site_diary_detail_label_inform_to_approve" = "Inform to Approve: ";
+"site_diary_detail_placeholder_inform_to_approve" = "Staff Name";
+"site_diary_detail_button_send_back" = "Send Back";
+"site_diary_detail_alertTitle_send_back" = "Site Diary Sent Back";
+"site_diary_detail_alertMessage_send_back" = "Selected diary has been returned.";
+"site_diary_detail_alertTitle_signed" = "Site Diary Signed";
+"site_diary_detail_alertMessage_signed" = "Selected diary has been signed.";
+"site_diary_detail_label_add_description" = "Add Description";
+"site_diary_detail_new_diary_entry_title" = "New Diary Entry";
+"site_diary_detail_label_caption" = "Caption...";
+"site_diary_detail_label_add_new" = "Add New";
+"site_diary_detail_label_pick_date" = "Pick a date";
+"site_diary_detail_label_remark_with_max" = "Remarks (Max 300 words)";
+"site_diary_detail_button_take_photo" = "Take Photo";
+"site_diary_detail_button_select_from_gallery" = "Select From Gallery";
+"site_diary_detail_button_sign_and_submit" = "Sign & Submit";
+"site_diary_detail_alertTitle_confirm_submit" = "Are you sure you want to submit this diary?";
+"site_diary_detail_alertMessage_confirm_submit" = "This action cannot be undone.";
+"site_diary_detail_button_confirm_submit" = "Confirm Submit";
+"site_diary_detail_alertTitle_submitted" = "Site Diary Submitted";
+"site_diary_detail_alertMessage_submitted" = "Selected diary has been submitted.";
+"site_diary_detail_alertTitle_file_size" = "File Size Too Large";
+"site_diary_detail_alertMessage_file_size" = "The selected file ({R1} MB) exceeds our 5 MB limit. Please choose a smaller file or compress this one before uploading.";
+"site_diary_detail_alertTitle_leave" = "Are you sure you leave without submit?";
+"site_diary_detail_alertMessage_leave" = "This action cannot be undone. ";
+"site_diary_detail_button_confirm_leave" = "Confirm Leave";
+
+/* Safety Inspection Status */
+"safety_inspection_status_label_all" = "All";
+"safety_inspection_status_label_draft" = "Draft";
+"safety_inspection_status_label_pending_close" = "Pending close";
+"safety_inspection_status_label_closed" = "Closed";
+
+/* Safety Inspection Main */
+"safety_inspection_main_label_select_swac" = "Select SWAC";
+"safety_inspection_main_label_total_count" = "Total {R1} item(s)";
+"safety_inspection_main_placeholder_swac" = "Search SWAC No.";
+"safety_inspection_main_label_contract_title" = "Contract Title";
+"safety_inspection_main_label_contractor_name" = "Contractor Name";
+"safety_inspection_main_label_swac_no" = "SWAC No.";
+"safety_inspection_main_label_work_order_no" = "Work Order No.";
+"safety_inspection_main_label_last_inspection_date" = "Last Inspection Date:";
+
+/* Safety Inspection Card */
+"safety_inspection_list_label_report_no" = "Report No.";
+"safety_inspection_list_label_create Date" = "Create Date";
+"safety_inspection_list_label_last_inspection_date" = "Last Inspection Date";
+"safety_inspection_list_label_submitted_by" = "Submitted By";
+"safety_inspection_list_button_view" = "View";
+"safety_inspection_list_button_edit" = "Edit";
+"safety_inspection_list_placeholder_search_report" = "Search Report No.";
+
+/* Safety Inspection Detail */
+"safety_inspection_detail_title" = "Safety Inspection";
+"safety_inspection_detail_new_title" = "New Safety Inspection";
+"safety_inspection_detail_completed_title" = "Safety Inspection (Completed)";
+"safety_inspection_detail_complete_title" = "Complete Safety Inspection";
+"safety_inspection_detail_label_contract_title" = "Contract Title";
+"safety_inspection_detail_label_contract_no" = "Contract No.";
+"safety_inspection_detail_label_swac_no" = "SWAC No.";
+"safety_inspection_detail_label_work_order_no" = "Work Order No.";
+"safety_inspection_detail_label_date_of_checking" = "Date of checking";
+"safety_inspection_detail_label_check_by" = "Checked By:";
+"safety_inspection_detail_label_inform_to_approve" = "Inform to Approve:";
+"safety_inspection_detail_label_work_details" = "Work Details";
+"safety_inspection_detail_label_type_of_confined_space" = "Type of Confined Space";
+"safety_inspection_detail_placeholder_inform_to_approve" = "Staff Name";
+"safety_inspection_detail_label_permit_to_work" = "Permit to work";
+"safety_inspection_detail_label_fresh_ra" = "Fresh RA";
+"safety_inspection_detail_label_permit_to_work_complete" = "Permit to work (Completion)";
+"safety_inspection_detail_button_add_new" = "Add New";
+"safety_inspection_detail_alertTitle_leave" = "Are you sure you leave without submit?";
+"safety_inspection_detail_alertMessage_leave" = "This action cannot be undone. ";
+"safety_inspection_detail_button_confirm_leave" = "Confirm Leave";
+
+/* Safety Inspection Checklist  */
+"safety_inspection_checklist_title" = "Safety Inspection Checklist";
+"safety_inspection_checklist_new_title" = "New Safety Inspection Checklist";
+"safety_inspection_checklist_button_save_as_draft" = "Save as Draft";
+"safety_inspection_checklist_alertTitle_confirm" = "Are you sure you want to submit this checklist?";
+"safety_inspection_checklist_alertMessage_confirm" = "This action cannot be undone.";
+"safety_inspection_checklist_button_confirm_submit" = "Confirm Submit";
+"safety_inspection_checklist_alertTitle_submitted" = "Checklist Submitted";
+"safety_inspection_checklist_alertMessage_submitted" = "Your safety check has been recorded.";
+"safety_inspection_checklist_alertTitle_submission_failed" = "Submission failed";
+"safety_inspection_checklist_button_back_to_checklist" = "Back to checklist";
+"safety_inspection_checklist_label_option_yes" = "Yes";
+"safety_inspection_checklist_label_option_no" = "No";
+"safety_inspection_checklist_label_option_na" = "N/A ";
+"safety_inspection_checklist_label_remark" = "Remarks";
+"safety_inspection_checklist_placeholder_remark" = "Please type your marks here";
+"safety_inspection_checklist_alertTitle_note" = "Note";
+"safety_inspection_checklist_button_close" = "Close";
+"safety_inspection_checklist_button_complete" = "Complete";
+"safety_inspection_checklist_alertMessage_note_msg1" = "DCP means a \"Designated Competent Person\" who has attended the \"Confined Space Safety Training Course for Competent Persons Engaged in DSD's Works\" run by Hong Kong Institute of Construction, Construction Industry Council, (HKIC, CIC) and holds a valid certificate.";
+"safety_inspection_checklist_alertMessage_note_msg2" = "DCW means a \"Designated Certified Worker\" who has attended the \"Confined Space Safety Training Course for Certified Workers Engaged in DSD's Works\" run by Hong Kong Institution of Construction, Construction Industry Council (HKIC, CIC) and holds a valid certificate.";
+"safety_inspection_checklist_alertMessage_note_msg3" = "Applicable to construction of hand-dug tunnels as stipulated in the Guidance Notes on Safety and Health of Hand-dug Tunnelling Work (Dec 2017) published by the Labour Department.";
+"safety_inspection_checklist_alertMessage_note_msg4" = "The checklist is not exhaustive. The ER of DSD’s site supervisory staff or consultants’ RSS, or officer-in-charge of in-house confined space works, should modify the checklist to suit the specific need.";
+"safety_inspection_checklist_alertMessage_note_msg5" = "For confined space works undertaken by DSD’s in-house staff, the appointed staff should perform checking of all applicable items except those concerning contractor’s personnel.";
+
+/* Setting  */
+"setting_title_account_setting" = "Account Setting";
+"setting_label_my_profile" = "My Profile";
+"setting_label_login_id" = "Login ID";
+"setting_label_email_address" = "Email Address";
+"setting_label_nameEng" = "Name";
+"setting_label_nameChi" = "Name (Chinese)";
+"setting_label_division" = "Division";
+"setting_label_post" = "Post";
+"setting_label_office_phone_number" = "Office Number";
+"setting_label_mobile_phone_number" = "Mobile Number";
+"setting_label_language" = "Language";
+"setting_button_language_eng" = "Eng";
+"setting_button_language_chinese" = "Chinese";
+"setting_button_logout" = "Logout";
+"setting_label_version" = "Version";
+"setting_alertTitle_logout" = "Are you sure you want to logout?";
+"setting_alertMessage_logout_msg" = "You’ll need to login again to continue.";
+"setting_button_logout" = "Logout";
+"setting_button_cancel" = "Cancel";
+
+/* Server Error */
+
+/* --- General / Auth --- */
+"invalid caller" = "invalid caller";
+"invalid password" = "invalid password";
+"user not found" = "user not found";
+"staff not found" = "staff not found";
+"contractor not found" = "contractor not found";
+"working team member not found" = "working team member not found";
+"error in sign in" = "error in sign in";
+"error in sign out" = "error in sign out";
+"error login staff" = "error login staff";
+"error login contractor" = "error login contractor";
+"error login working team member" = "error login working team member";
+
+/* --- Attendance & Access Code --- */
+"invalid access code" = "invalid access code";
+"access code not found" = "access code not found";
+"error getting the QR code" = "error getting the QR code";
+"error inspecting the access code" = "error inspecting the access code";
+"error getting the attendance list" = "error getting the attendance list";
+"error checking the status of today sign-out" = "error checking the status of today sign-out";
+"error checking the outstanding sign-out for today" = "error checking the outstanding sign-out for today";
+"Error getting contractor attendance records" = "Error getting contractor attendance records";
+"invalid member ID" = "invalid member ID";
+"sign in already, cannot sign in again" = "sign in already, cannot sign in again";
+"cannot sign out without sign in record" = "cannot sign out without sign in record";
+"sign out already, cannot sign out again" = "sign out already, cannot sign out again";
+
+/* --- SWAC --- */
+"SWAC is not found" = "SWAC is not found";
+"invalid swac" = "invalid swac";
+"swac expired" = "swac expired";
+"SWAC is not yet approved" = "SWAC is not yet approved";
+"invalid contractor" = "invalid contractor";
+"error getting the list of SWAC" = "error getting the list of SWAC";
+"error getting the profile of SWAC" = "error getting the profile of SWAC";
+"error getting the profile of working team member" = "error getting the profile of working team member";
+"error searching SWAC" = "error searching SWAC";
+"error getting approver list" = "error getting approver list";
+
+/* --- Reports & Site Diary --- */
+"error submitting the incident report" = "error submitting the incident report";
+"error processing incident report" = "error processing incident report";
+"error getting the list of incident report" = "error getting the list of incident report";
+"incident report not found" = "incident report not found";
+"error submitting the site diary" = "error submitting the site diary";
+"error processing the site diary" = "error processing the site diary";
+"error getting the list of site diary" = "error getting the list of site diary";
+"error getting the site diary" = "error getting the site diary";
+"error getting site diary" = "error getting site diary";
+"invalid site diary" = "invalid site diary";
+"error submitting the safety inspection report" = "error submitting the safety inspection report";
+"error processing the site safety inspection report" = "error processing the site safety inspection report";
+"error getting the list of safety inspection report" = "error getting the list of safety inspection report";
+"error getting the safety inspection report" = "error getting the safety inspection report";
+"error getting safety inspection report" = "error getting safety inspection report";
+"error getting the safety inspection report format" = "error getting the safety inspection report format";
+"error creating the safety inspection report format" = "error creating the safety inspection report format";
+"invalid safety inspection report" = "invalid safety inspection report";
+"staff is not the safety officer" = "staff is not the safety officer";
+
+/* --- Notifications & Mobile Token --- */
+"error registering mobile token" = "error registering mobile token";
+"error registering the mobile token" = "error registering the mobile token";
+"error deregistering mobile token" = "error deregistering mobile token";
+"error deregistering the mobile token" = "error deregistering the mobile token";
+"error getting mobile notifications" = "error getting mobile notifications";
+"error getting mobile notification" = "error getting mobile notification";
+"error getting the unread count of mobile notifications" = "error getting the unread count of mobile notifications";
+"error getting unread count of mobile notification" = "error getting unread count of mobile notification";
+"error marking read the mobile notification" = "error marking read the mobile notification";
+"receiver not found" = "receiver not found";
+"invalid notification" = "invalid notification";
+
+/* --- Documents & Pagination --- */
+"error getting the list of document contents" = "error getting the list of document contents";
+"error getting the document contents" = "error getting the document contents";
+"document not found" = "document not found";
+"unauthorised to access document" = "unauthorised to access document";
+"invalid page size" = "invalid page size";
+"invalid page number" = "invalid page number";
