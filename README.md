@@ -1,7 +1,7 @@
 # DSD SWIMS Staff iOS
 
-DSD SWIMS Staff is an iOS application for supporting DSD/SWAC site and staff
-operations, including attendance management, safety inspections, site diaries
+DSD SWIMS Staff is an iOS application for supporting DSD staff operations,
+including attendance management, safety inspections, site diaries
 and incident reporting.
 
 Repository: <https://github.com/emit-dsd/dsd-swac-staff-ios>
@@ -9,13 +9,14 @@ Repository: <https://github.com/emit-dsd/dsd-swac-staff-ios>
 ## Features
 
 - User login and session management
-- Home dashboard and SWAC management
+- Home dashboard and quick action 
+- SWAC management
 - Staff attendance sign-in and sign-out
 - Site diary creation and management
-- Safety inspection checklists
+- Safety inspection checklists creation
 - Incident report submission and management
 - Push notifications
-- QR code and document scanning
+- QR code scanning for attendance
 - Photo and file attachments
 - Language selection
 
@@ -66,8 +67,8 @@ The app supports the following environments:
 
 | Environment | Purpose |
 |-------------|---------|
-| DEV | Development and local testing |
-| UAT | User acceptance testing |
+| DEV | ASL Development and local testing |
+| UAT | DSD User acceptance testing |
 | PROD | Production release |
 
 Each environment has its own bundle identifier, API configuration, Firebase
@@ -118,10 +119,3 @@ Before generating an IPA, verify the following:
 2. The API and Firebase configurations match the selected environment.
 3. Signing and provisioning settings are valid.
 4. The app has been tested against the intended environment.
-
-## Security Notes
-
-Do not commit API tokens, user passwords, private keys, certificates or other
-production secrets to the repository. Avoid logging bearer tokens or personal
-information. Environment-specific credentials should be managed through the
-approved secure development or release process.
