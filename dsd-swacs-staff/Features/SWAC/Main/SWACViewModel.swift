@@ -12,21 +12,34 @@ import Combine
 class SWACViewModel: ObservableObject {
     
     enum SWACStatusFilter: CaseIterable {
-        case validSWAC
-        case registeredSiteWork
+        case approval
+        case endorsement
+        case reject
         case safetyVetting
-        case approved
         
         var localizationKey: String {
             switch self {
-            case .validSWAC:
-                return "swac_status_label_valid_swac"
-            case .registeredSiteWork:
-                return "swac_status_label_registered_site_work"
+            case .approval:
+                return "swac_status_label_cswr_approve"
+            case .endorsement:
+                return "swac_status_label_cswr_endorse"
+            case .reject:
+                return "swac_status_label_cswr_reject"
             case .safetyVetting:
                 return "swac_status_label_vetting"
-            case .approved:
-                return "swac_status_label_approved"
+            }
+        }
+
+        var actionTitleKey: String? {
+            switch self {
+            case .approval:
+                return "today_swac_button_approve_entry"
+            case .endorsement:
+                return "today_swac_button_endorse_registation"
+            case .reject:
+                return "today_swac_button_reject"
+            case .safetyVetting:
+                return nil
             }
         }
     }
@@ -138,16 +151,38 @@ class SWACViewModel: ObservableObject {
         
         fetchTask = Task {
             do {
-                let request = buildSearchRequest()
+                let newItems: [SWACListItem]
                 
-                let responseList: [SWACListItemResponse] = try await APIService.swacSearch(request: request)
+                if isSearchActive {
+                    let request = buildSearchRequest()
+                    let responseList: [SWACListItemResponse] = try await APIService.swacSearch(request: request)
+                    newItems = responseList.map { SWACListItem(from: $0) }
+                } else if let selectedStatus {
+                    let responseList: [SiteWorkProfileResponse]
+                    switch selectedStatus {
+                    case .approval:
+                        responseList = try await APIService.getApprovalList(page: currentPage, pageSize: pageSize)
+                    case .endorsement:
+                        responseList = try await APIService.getEndorsementList(page: currentPage, pageSize: pageSize)
+                    case .reject:
+                        responseList = try await APIService.getRejectList(page: currentPage, pageSize: pageSize)
+                    case .safetyVetting:
+                        responseList = []
+                    }
+                    if selectedStatus == .safetyVetting {
+                        let safetyVettingItems = try await APIService.getSafetyVettingList(page: currentPage, pageSize: pageSize)
+                        newItems = safetyVettingItems.map { SWACListItem(from: $0) }
+                    } else {
+                        newItems = responseList.map { SWACListItem(from: $0) }
+                    }
+                } else {
+                    newItems = []
+                }
                 
                 guard !Task.isCancelled else {
                     print("⚠️ Fetch task was cancelled")
                     return
                 }
-                
-                let newItems = responseList.map { SWACListItem(from: $0) }
                 
                 hasMorePages = newItems.count >= pageSize
                 
@@ -188,16 +223,38 @@ class SWACViewModel: ObservableObject {
         defer { isLoadingMore = false }
         
         do {
-            let request = buildSearchRequest()
+            let newItems: [SWACListItem]
             
-            let responseList: [SWACListItemResponse] = try await APIService.swacSearch(request: request)
+            if isSearchActive {
+                let request = buildSearchRequest()
+                let responseList: [SWACListItemResponse] = try await APIService.swacSearch(request: request)
+                newItems = responseList.map { SWACListItem(from: $0) }
+            } else if let selectedStatus {
+                let responseList: [SiteWorkProfileResponse]
+                switch selectedStatus {
+                case .approval:
+                    responseList = try await APIService.getApprovalList(page: currentPage, pageSize: pageSize)
+                case .endorsement:
+                    responseList = try await APIService.getEndorsementList(page: currentPage, pageSize: pageSize)
+                case .reject:
+                    responseList = try await APIService.getRejectList(page: currentPage, pageSize: pageSize)
+                case .safetyVetting:
+                    responseList = []
+                }
+                if selectedStatus == .safetyVetting {
+                    let safetyVettingItems = try await APIService.getSafetyVettingList(page: currentPage, pageSize: pageSize)
+                    newItems = safetyVettingItems.map { SWACListItem(from: $0) }
+                } else {
+                    newItems = responseList.map { SWACListItem(from: $0) }
+                }
+            } else {
+                newItems = []
+            }
             
             guard !Task.isCancelled else {
                 print("⚠️ Load more task was cancelled")
                 return
             }
-            
-            let newItems = responseList.map { SWACListItem(from: $0) }
             
             if !newItems.isEmpty {
                 swacList.append(contentsOf: newItems)
@@ -247,6 +304,15 @@ class SWACViewModel: ObservableObject {
         }
     }
 
+    func endorseRegistration(item: SWACListItem) async {
+        do {
+            try await APIService.cswrEndorseRegistration(entryId: item.siteWorkID)
+            await refreshList()
+        } catch {
+            print("❌ Endorse registration failed: \(error)")
+        }
+    }
+
     func rejectEntry(item: SWACListItem) async {
         do {
             let entryId = item.siteWorkID
@@ -273,15 +339,10 @@ class SWACViewModel: ObservableObject {
         } else if let status = selectedStatus {
             // Apply filter parameters
             switch status {
-            case .validSWAC:
-                // Only page and pageSize
-                break
-            case .registeredSiteWork:
+            case .approval, .endorsement, .reject:
                 isSiteWorkRegistered = true
             case .safetyVetting:
                 stateValue = 3
-            case .approved:
-                stateValue = 5
             }
         }
         

@@ -50,6 +50,7 @@ extension View {
 }
 
 
+// MARK: - API Error Alert Modifier
 struct APIErrorAlertModifier: ViewModifier {
     @ObservedObject var api = APIManager.shared
     @ObservedObject var alertManager =  AlertManager.shared
@@ -87,7 +88,7 @@ extension View {
     }
 }
 
-// MARK: - Loading UI
+// MARK: - Loading UI Modifier
 struct GlobalLoadingOverlay: ViewModifier {
     @ObservedObject var api = APIManager.shared
     

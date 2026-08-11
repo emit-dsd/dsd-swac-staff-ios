@@ -1,4 +1,3 @@
-
 //
 //  Login.swift
 //  dsd-swacs-staff
@@ -95,6 +94,20 @@ struct SWACDetailResponse: Codable {
     let regionalControlCentre: Int?
 }
 
+struct SiteWorkProfileResponse: Codable {
+    let id: Int
+    let ticket: Int?
+    let regionalControlCentre: Int
+    let swac: String?
+    let company: String?
+    let date: String?
+    let location: String?
+    let isConfinedSpaceWork: Bool
+    let siteInCharge: String?
+    let targetFinishTime: String?
+    let state: Int
+}
+
 struct AttendanceRecordResponse: Identifiable, Codable {
     let id: Int
     let swac: String
@@ -140,7 +153,9 @@ struct SiteDiaryListItemResponse: Decodable, Identifiable {
     let swac: String
     let approver: String?
     let date: String  // "2025-12-10"
-    let weather: Int
+    let weatherAM: Int?
+    let weatherPM: Int?
+    let labour: Int?
     let workActivity: String
     let instruction: String?
     let response: String?
@@ -155,7 +170,9 @@ struct SiteDiaryDetailResponse: Decodable, Identifiable {
     let swac: String
     let approver: String?
     let date: String  // "2025-12-10"
-    let weather: Int
+    let weatherAM: Int?
+    let weatherPM: Int?
+    let labour: Int?
     let workActivity: String
     let instruction: String?
     let response: String?
@@ -193,7 +210,7 @@ struct SafetyInspectionListItemResponse: Codable, Identifiable {
     let submittedBy: String
     let submissionTime: String // e.g. "2026-01-06T11:07:44.743"
     let swac: String
-    let cswr: String?
+    let cswr: Int?
     let isClosed: Bool
 }
 
@@ -243,4 +260,12 @@ struct DocumentContentDataResponse: Codable {
     var cleanFileExtension: String {
         fileExtension.replacingOccurrences(of: ".", with: "")
     }
+}
+
+struct ReleaseNotes: Codable, Equatable {
+    let version: String
+    let summaryEn: String
+    let summaryTc: String
+    let summarySc: String
+    let url: String
 }

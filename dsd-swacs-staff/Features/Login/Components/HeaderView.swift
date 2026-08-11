@@ -22,7 +22,7 @@ struct HeaderView: View {
                     .foregroundColor(.Primary600)
                     .frame(maxWidth: .infinity, alignment: .topLeading)
                 Text("login_label_system_title".localized())
-                    .appFont(.robotoBold, size: 24)
+                    .appFont(.robotoBold, size: 22)
                     .foregroundColor(.Primary600)
                     .frame(maxWidth: .infinity, alignment: .topLeading)
             }

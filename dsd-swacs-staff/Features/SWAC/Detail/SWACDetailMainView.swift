@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct SWACDetailMainView: View {
+    @EnvironmentObject var alertManager: AlertManager
     @StateObject private var viewModel: SWACDetailViewModel
     @StateObject private var attendanceViewModel: SWACDetailAttendanceViewModel
     @State private var selectedTab: SWACDetailTab = .profile
     @State private var showDateFilter = false
+    @State private var showRemarkSheet = false
+    @State private var isApproveAction = true
     
     // Initialize with SWAC number
     init(swacNumber: String) {
@@ -71,8 +74,10 @@ struct SWACDetailMainView: View {
                 enabled: true,
                 maxWidth: .infinity
             ) {
-                // Approve action
+                isApproveAction = true
+                showRemarkSheet = true
             }
+            
             CommonButton(
                 title: "swac_detail_button_reject".localized(),
                 style: .outlined,
@@ -81,7 +86,8 @@ struct SWACDetailMainView: View {
                 textColor: .red,
                 backgroundColor: .red
             ) {
-                // Reject action
+                isApproveAction = false
+                showRemarkSheet = true
             }
         }
         .padding(.horizontal, 24)
@@ -90,6 +96,25 @@ struct SWACDetailMainView: View {
         .background(Color.white)
     }
     
+    private func showSuccessAlert(isApprove: Bool) {
+        alertManager.show(
+            title: isApprove ? "swac_detail_alertTitle_vetting_passed".localized() : "swac_detail_alertTitlevetting_failed_hint".localized(),
+            message: isApprove ? "swac_detail_alertMessage_vetting_passed_hint".localized() : "swac_detail_alertMessage_vetting_failed_hint".localized(), // 可以換成您需要的文案 key
+            image: isApprove ? "icon-alert-success" : "icon-alert-fail",
+            buttons: [
+                CommonButtonModel(
+                    title: "general_back".localized(),
+                    style: .contained,
+                    enabled: true,
+                    maxWidth: .infinity,
+                    action: {
+                        
+                    }
+                )
+            ]
+        )
+    }
+
     var body: some View {
         VStack(spacing: 0) {
             // Navigation bar
@@ -139,6 +164,15 @@ struct SWACDetailMainView: View {
                             bottomView
                         }
                     }
+                    if viewModel.isSubmitting || viewModel.isLoading {
+                        ZStack {
+                            Color.white.opacity(0.6) // 半透明白色背景，防誤觸並降低對比
+                                .ignoresSafeArea()
+                            
+                            ProgressView()
+                                .scaleEffect(1.5)
+                        }
+                    }
                 } else {
                     ProgressView()
                         .scaleEffect(1.5)
@@ -160,6 +194,20 @@ struct SWACDetailMainView: View {
                     } else if let date = result.singleDate {
                         Task {
                             await attendanceViewModel.updateDate(date)
+                        }
+                    }
+                }
+            )
+        }
+        .commonBottomSheet(isPresented: $showRemarkSheet, detents: [.height(320)]) {
+            SafetyVettingRemarkBottomSheetView(
+                isPresented: $showRemarkSheet,
+                isApprove: $isApproveAction,
+                onConfirm: { remarks in
+                    Task {
+                        let success = await viewModel.submitSafetyVetting(isApprove: isApproveAction, remarks: remarks)
+                        if success {
+                            showSuccessAlert(isApprove: isApproveAction)
                         }
                     }
                 }

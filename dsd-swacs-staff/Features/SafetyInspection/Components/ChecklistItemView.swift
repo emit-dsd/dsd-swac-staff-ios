@@ -644,6 +644,8 @@ struct CheckboxButton: View {
 // MARK: - Remarks Input View
 
 struct RemarksInputView: View {
+    private static let maximumLength = 256
+
     @Binding var text: String
     let isReadOnly: Bool
 
@@ -669,6 +671,10 @@ struct RemarksInputView: View {
                 placeholder: "safety_inspection_checklist_placeholder_remark".localized(),
                 mode: .default
             )
+            .onChange(of: text) {
+                guard text.count > Self.maximumLength else { return }
+                text = String(text.prefix(Self.maximumLength))
+            }
         }
     }
 }

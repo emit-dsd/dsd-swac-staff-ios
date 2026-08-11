@@ -10,6 +10,7 @@ public struct APIPath {
     static let staffLogin             = "/api/Home/StaffLogin"
     static let inspectAccessCode      = "/api/Home/InspectAccessCode"
     static let setLanguage            = "/api/Home/SetLanguage"
+    static let getReleaseNotes        = "/api/Home/GetReleaseNotes"
     
     static let submitincidentReport   = "/api/Report/Incident"
     static let incidentReportList     = "/api/Report/Incident/List"
@@ -32,16 +33,22 @@ public struct APIPath {
     
     static let staffSignIn           = "/api/Attendance/staff/SignIn"
     static let staffSignOut          = "/api/Attendance/staff/SignOut"
+    static let attendanceList        = "/api/Attendance/List"
+    static let attendanceMember      = "/api/Attendance/Member"
     
     static let swacList              = "/api/SWAC/List"
     static let swacSearch            = "/api/SWAC/Search"
     static let swacProfile           = "/api/SWAC/Profile"
     static let workingTeamMember     = "/api/SWAC/WorkingTeamMember"
     static let getApproverByRCC      = "/api/SWAC/GetApproverByRCC"
+    static let safetyVettingList     = "/api/SWAC/SafetyVetting"
+    static let passSafetyVetting     = "/api/SWAC/PassSafetyVetting"
+    static let failSafetyVetting     = "/api/SWAC/FailSafetyVetting"
     
-    static let attendanceList        = "/api/Attendance/List"
-    static let attendanceMember      = "/api/Attendance/Member"
-    
-    static let cswrApproveEntry      = "/api/CSWR/ApproveEntry"
-    static let cswrRejectEntry       = "/api/CSWR/RejectEntry"
+    static let approvalList             = "/api/CSWR/GetApprovalList"
+    static let endorsementList          = "/api/CSWR/GetEndorsementList"
+    static let rejectList               = "/api/CSWR/GetRejectList"
+    static let cswrApproveEntry         = "/api/CSWR/ApproveEntry"
+    static let cswrEndorseRegistration  = "/api/CSWR/EndorseRegistration"
+    static let cswrRejectEntry          = "/api/CSWR/RejectEntry"
 }

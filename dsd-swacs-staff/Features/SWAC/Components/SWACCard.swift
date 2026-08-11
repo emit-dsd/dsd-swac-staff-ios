@@ -4,43 +4,11 @@ struct SWACCard: View {
     let swac: SWACListItem
     var showActionButton: Bool = false
     var showCSWRStatus: Bool = false
-    var onConfirmActionButtonTapped: (SWACListItem) -> Void = { _ in }
-    var onRejectActionButtonTapped: (SWACListItem) -> Void = { _ in }
-    
-    enum CSWRStatus: Int, CaseIterable {
-        case pendingForAcknowledgement = 1
-        case pendingForMPS2Acknowledgement = 2
-        case pendingForApproval = 3
-        case confirmedEntry = 4
-        case pendingForMPS1Checkout = 5
-        case completed = 6
-        case rejected = 7
-        case recessInProgress = 8
-        
-        var localizationKey: String {
-            switch self {
-            case .pendingForAcknowledgement:
-                return "cswr_status_label_pending_for_acknowledgement"
-            case .pendingForMPS2Acknowledgement:
-                return "cswr_status_label_pending_for_mps2_acknowledgement"
-            case .pendingForApproval:
-                return "cswr_status_label_pending_for_approval"
-            case .confirmedEntry:
-                return "cswr_status_label_confirmed_entry"
-            case .pendingForMPS1Checkout:
-                return "cswr_status_label_pending_for_mps1_checkout"
-            case .completed:
-                return "cswr_status_label_completed"
-            case .rejected:
-                return "cswr_status_label_rejected"
-            case .recessInProgress:
-                return "cswr_status_label_recess_in_progress"
-            }
-        }
-    }
+    var actionTitle: String = "today_swac_button_approve_entry"
+    var onActionButtonTapped: (SWACListItem) -> Void = { _ in }
     
     private var cswrStatusDisplayString: String {
-        if let status = CSWRStatus(rawValue: swac.siteWorkstate) {
+        if let status = SiteWorkState(rawValue: swac.siteWorkstate) {
             return status.localizationKey.localized()
         }
         return "-"
@@ -93,26 +61,17 @@ struct SWACCard: View {
                     }
                 }
                 
-                if swac.needSiteWorkStartApproval && showActionButton{
-//                if showActionButton{
+//                if swac.needSiteWorkStartApproval && showActionButton{
+                if showActionButton{
                     HStack(alignment: .top, spacing: 8) {
-                        CommonButton(title: "today_swac_button_start_work".localized(),
+                        CommonButton(title: actionTitle.localized(),
                                      style: .contained,
                                      enabled: true,
                                      maxWidth: .infinity,
                                      textColor: Color.white,
                                      backgroundColor: Color.red,
                                      action: {
-                            onConfirmActionButtonTapped(swac)
-                        })
-                        CommonButton(title: "today_swac_button_reject".localized(),
-                                     style: .outlined,
-                                     enabled: true,
-                                     maxWidth: .infinity,
-                                     textColor: Color.red,
-                                     backgroundColor: Color.red,
-                                     action: {
-                            onRejectActionButtonTapped(swac)
+                            onActionButtonTapped(swac)
                         })
                     }
                     .padding(0)

@@ -243,6 +243,15 @@
 		A14B86D92E65A69600F2E885 /* SignedStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B86D82E65A69600F2E885 /* SignedStatus.swift */; };
 		A14B86DC2E66869C00F2E885 /* SiteDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B86DB2E66869C00F2E885 /* SiteDiary.swift */; };
 		A14B86E22E66A94000F2E885 /* SiteDiaryRecordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B86E12E66A93900F2E885 /* SiteDiaryRecordCard.swift */; };
+		A14E2DF02F972484003215D9 /* CSWRCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14E2DEF2F972484003215D9 /* CSWRCard.swift */; };
+		A14E2DF12F972484003215D9 /* CSWRCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14E2DEF2F972484003215D9 /* CSWRCard.swift */; };
+		A14E2DF22F972484003215D9 /* CSWRCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14E2DEF2F972484003215D9 /* CSWRCard.swift */; };
+		A157D0102F711AD7008728E5 /* VersionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157D00F2F711AD6008728E5 /* VersionChecker.swift */; };
+		A157D0112F711AD7008728E5 /* VersionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157D00F2F711AD6008728E5 /* VersionChecker.swift */; };
+		A157D0122F711AD7008728E5 /* VersionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157D00F2F711AD6008728E5 /* VersionChecker.swift */; };
+		A157D16B2F87AF96008728E5 /* SafetyVettingRemarkBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157D16A2F87AF8E008728E5 /* SafetyVettingRemarkBottomSheetView.swift */; };
+		A157D16C2F87AF96008728E5 /* SafetyVettingRemarkBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157D16A2F87AF8E008728E5 /* SafetyVettingRemarkBottomSheetView.swift */; };
+		A157D16D2F87AF96008728E5 /* SafetyVettingRemarkBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157D16A2F87AF8E008728E5 /* SafetyVettingRemarkBottomSheetView.swift */; };
 		A15EDDA02E4B3C1000A27450 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15EDD9F2E4B3C0D00A27450 /* APIError.swift */; };
 		A15EDDA62E4B3C4600A27450 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15EDDA52E4B3C4500A27450 /* TokenManager.swift */; };
 		A15EDDA82E4B3C5000A27450 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15EDDA72E4B3C4E00A27450 /* NetworkManager.swift */; };
@@ -339,9 +348,6 @@
 		A19D0E382E458DC300D28314 /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D0E372E458DBC00D28314 /* Attendance.swift */; };
 		A19D0E3A2E458DE800D28314 /* SiteWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D0E392E458DE300D28314 /* SiteWork.swift */; };
 		A19D0E3E2E458E1B00D28314 /* NotificationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D0E3D2E458E1A00D28314 /* NotificationItem.swift */; };
-		A1A97DED2EC75F1600E7158B /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = A1A97DEC2EC75F1600E7158B /* AppIcon.icon */; };
-		A1A97DEE2EC75F1600E7158B /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = A1A97DEC2EC75F1600E7158B /* AppIcon.icon */; };
-		A1A97DEF2EC75F1600E7158B /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = A1A97DEC2EC75F1600E7158B /* AppIcon.icon */; };
 		A1A97DF72ECAC9FA00E7158B /* IncidentReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A97DF62ECAC9FA00E7158B /* IncidentReportView.swift */; };
 		A1A97DF82ECAC9FA00E7158B /* IncidentReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A97DF62ECAC9FA00E7158B /* IncidentReportView.swift */; };
 		A1A97DF92ECAC9FA00E7158B /* IncidentReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A97DF62ECAC9FA00E7158B /* IncidentReportView.swift */; };
@@ -635,6 +641,9 @@
 		A14B86D82E65A69600F2E885 /* SignedStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedStatus.swift; sourceTree = "<group>"; };
 		A14B86DB2E66869C00F2E885 /* SiteDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteDiary.swift; sourceTree = "<group>"; };
 		A14B86E12E66A93900F2E885 /* SiteDiaryRecordCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteDiaryRecordCard.swift; sourceTree = "<group>"; };
+		A14E2DEF2F972484003215D9 /* CSWRCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSWRCard.swift; sourceTree = "<group>"; };
+		A157D00F2F711AD6008728E5 /* VersionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionChecker.swift; sourceTree = "<group>"; };
+		A157D16A2F87AF8E008728E5 /* SafetyVettingRemarkBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyVettingRemarkBottomSheetView.swift; sourceTree = "<group>"; };
 		A15EDD9F2E4B3C0D00A27450 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		A15EDDA52E4B3C4500A27450 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		A15EDDA72E4B3C4E00A27450 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -682,7 +691,6 @@
 		A19D0E372E458DBC00D28314 /* Attendance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendance.swift; sourceTree = "<group>"; };
 		A19D0E392E458DE300D28314 /* SiteWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteWork.swift; sourceTree = "<group>"; };
 		A19D0E3D2E458E1A00D28314 /* NotificationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationItem.swift; sourceTree = "<group>"; };
-		A1A97DEC2EC75F1600E7158B /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		A1A97DF62ECAC9FA00E7158B /* IncidentReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncidentReportView.swift; sourceTree = "<group>"; };
 		A1A97DFA2ECACF5900E7158B /* CustomToggleRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggleRowView.swift; sourceTree = "<group>"; };
 		A1A97E022ECAD93F00E7158B /* CustomTimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTimePickerView.swift; sourceTree = "<group>"; };
@@ -788,6 +796,21 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		A119AEE72F9F11C900E23287 /* PROD */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = PROD;
+			sourceTree = "<group>";
+		};
+		A119AEE92F9F11E500E23287 /* UAT */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = UAT;
+			sourceTree = "<group>";
+		};
+		A119AEF22F9F138300E23287 /* DEV */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = DEV;
+			sourceTree = "<group>";
+		};
 		A12B12D42EC2F26C001B047C /* DEV */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -1017,6 +1040,7 @@
 		A10FC3BD2E3B535F009271B0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A157D00F2F711AD6008728E5 /* VersionChecker.swift */,
 				A1CD3FD62E5D4C5F00468279 /* AlertManager.swift */,
 				A1E120252EA87E63003E9E58 /* AppUserDefaults.swift */,
 				A1452FFE2EB22D5A002D6628 /* KeyboardResponder.swift */,
@@ -1062,6 +1086,16 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		A119AEEA2F9F11F500E23287 /* AppIcon */ = {
+			isa = PBXGroup;
+			children = (
+				A119AEF22F9F138300E23287 /* DEV */,
+				A119AEE92F9F11E500E23287 /* UAT */,
+				A119AEE72F9F11C900E23287 /* PROD */,
+			);
+			path = AppIcon;
+			sourceTree = "<group>";
+		};
 		A13111102E43484C00A37361 /* Attendance */ = {
 			isa = PBXGroup;
 			children = (
@@ -1093,8 +1127,10 @@
 			isa = PBXGroup;
 			children = (
 				A10FC3A62E3B535F009271B0 /* SWACCard.swift */,
+				A14E2DEF2F972484003215D9 /* CSWRCard.swift */,
 				A13111142E44525600A37361 /* StaffCard.swift */,
 				A1E1202B2EA8D350003E9E58 /* WorkerInfoRecord.swift */,
+				A157D16A2F87AF8E008728E5 /* SafetyVettingRemarkBottomSheetView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1134,9 +1170,9 @@
 		A13111262E4588E900A37361 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A119AEEA2F9F11F500E23287 /* AppIcon */,
 				A10FC3B92E3B535F009271B0 /* Fonts */,
 				A10FC37C2E3B535D009271B0 /* Assets.xcassets */,
-				A1A97DEC2EC75F1600E7158B /* AppIcon.icon */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1617,6 +1653,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				A119AEE92F9F11E500E23287 /* UAT */,
 				A12B12D42EC2F26C001B047C /* DEV */,
 				A12B12D62EC2F276001B047C /* UAT */,
 				A16C27212EC3345900E178CD /* PROD */,
@@ -1645,6 +1682,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				A119AEF22F9F138300E23287 /* DEV */,
 				A12B12D42EC2F26C001B047C /* DEV */,
 				A12B12D62EC2F276001B047C /* UAT */,
 				A16C27212EC3345900E178CD /* PROD */,
@@ -1673,6 +1711,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				A119AEE72F9F11C900E23287 /* PROD */,
 				A12B12D42EC2F26C001B047C /* DEV */,
 				A12B12D62EC2F276001B047C /* UAT */,
 				A16C27212EC3345900E178CD /* PROD */,
@@ -1744,7 +1783,6 @@
 				A1C715372E4C86E0005BE448 /* Localizable.strings in Resources */,
 				A10FC3EB2E3B535F009271B0 /* Roboto-Light.ttf in Resources */,
 				A10FC3EC2E3B535F009271B0 /* Roboto-Medium.ttf in Resources */,
-				A1A97DED2EC75F1600E7158B /* AppIcon.icon in Resources */,
 				A10FC3822E3B535D009271B0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1753,7 +1791,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1A97DEF2EC75F1600E7158B /* AppIcon.icon in Resources */,
 				A12B12BD2EC2EE01001B047C /* Roboto-SemiBold.ttf in Resources */,
 				A12B12BE2EC2EE01001B047C /* Roboto-Bold.ttf in Resources */,
 				A12B12BF2EC2EE01001B047C /* Roboto-Regular.ttf in Resources */,
@@ -1778,7 +1815,6 @@
 				A1C2095F2EBC4A2F003F256C /* Localizable.strings in Resources */,
 				A1C209602EBC4A2F003F256C /* Roboto-Light.ttf in Resources */,
 				A1C209612EBC4A2F003F256C /* Roboto-Medium.ttf in Resources */,
-				A1A97DEE2EC75F1600E7158B /* AppIcon.icon in Resources */,
 				A1C209622EBC4A2F003F256C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1864,6 +1900,7 @@
 				A145300F2EB33B39002D6628 /* CustomCommentBottomSheetView.swift in Sources */,
 				A15EDDAC2E4B3C6600A27450 /* APIManager.swift in Sources */,
 				A1A97E082ECB17AC00E7158B /* IncidentReportViewModel.swift in Sources */,
+				A157D0112F711AD7008728E5 /* VersionChecker.swift in Sources */,
 				A1C2096B2EBC7E29003F256C /* SWACViewModel.swift in Sources */,
 				A185652F2E409AB0003CBD98 /* NotificationListView.swift in Sources */,
 				A1B959062E409A3600236A49 /* NotificationListRowView.swift in Sources */,
@@ -1888,11 +1925,13 @@
 				A1CD3FD52E5C645F00468279 /* UserProfile.swift in Sources */,
 				A1F963DD2EA2269900F82D0A /* CustomDatePickerView.swift in Sources */,
 				A10FC3D92E3B535F009271B0 /* LoginMainView.swift in Sources */,
+				A157D16B2F87AF96008728E5 /* SafetyVettingRemarkBottomSheetView.swift in Sources */,
 				A10FC3DA2E3B535F009271B0 /* CustomNavBarView.swift in Sources */,
 				A1F30FC22EB085BC00EEEB40 /* SiteDiarySWACCard.swift in Sources */,
 				A19AC1B22E40B36600C36F88 /* DayTypeChip.swift in Sources */,
 				A14B86DC2E66869C00F2E885 /* SiteDiary.swift in Sources */,
 				A10FC3DC2E3B535F009271B0 /* Font.swift in Sources */,
+				A14E2DF12F972484003215D9 /* CSWRCard.swift in Sources */,
 				A1A97DFC2ECACF6100E7158B /* CustomToggleRowView.swift in Sources */,
 				A13111152E44525600A37361 /* StaffCard.swift in Sources */,
 				A1E1202A2EA8C4A0003E9E58 /* SWACDetailWorkerInfoView.swift in Sources */,
@@ -2038,6 +2077,7 @@
 				A12B12692EC2EE01001B047C /* CustomCommentBottomSheetView.swift in Sources */,
 				A12B126A2EC2EE01001B047C /* APIManager.swift in Sources */,
 				A1A97E072ECB17AC00E7158B /* IncidentReportViewModel.swift in Sources */,
+				A157D0102F711AD7008728E5 /* VersionChecker.swift in Sources */,
 				A12B126B2EC2EE01001B047C /* SWACViewModel.swift in Sources */,
 				A12B126C2EC2EE01001B047C /* NotificationListView.swift in Sources */,
 				A12B126D2EC2EE01001B047C /* NotificationListRowView.swift in Sources */,
@@ -2062,11 +2102,13 @@
 				A12B12792EC2EE01001B047C /* UserProfile.swift in Sources */,
 				A12B127A2EC2EE01001B047C /* CustomDatePickerView.swift in Sources */,
 				A12B127B2EC2EE01001B047C /* LoginMainView.swift in Sources */,
+				A157D16D2F87AF96008728E5 /* SafetyVettingRemarkBottomSheetView.swift in Sources */,
 				A12B127C2EC2EE01001B047C /* CustomNavBarView.swift in Sources */,
 				A12B127D2EC2EE01001B047C /* SiteDiarySWACCard.swift in Sources */,
 				A12B127E2EC2EE01001B047C /* DayTypeChip.swift in Sources */,
 				A12B127F2EC2EE01001B047C /* SiteDiary.swift in Sources */,
 				A12B12802EC2EE01001B047C /* Font.swift in Sources */,
+				A14E2DF02F972484003215D9 /* CSWRCard.swift in Sources */,
 				A1A97DFD2ECACF6100E7158B /* CustomToggleRowView.swift in Sources */,
 				A12B12812EC2EE01001B047C /* StaffCard.swift in Sources */,
 				A12B12822EC2EE01001B047C /* SWACDetailWorkerInfoView.swift in Sources */,
@@ -2212,6 +2254,7 @@
 				A1C2090F2EBC4A2F003F256C /* CustomCommentBottomSheetView.swift in Sources */,
 				A1C209102EBC4A2F003F256C /* APIManager.swift in Sources */,
 				A1A97E092ECB17AC00E7158B /* IncidentReportViewModel.swift in Sources */,
+				A157D0122F711AD7008728E5 /* VersionChecker.swift in Sources */,
 				A1C2096C2EBC7E29003F256C /* SWACViewModel.swift in Sources */,
 				A1C209112EBC4A2F003F256C /* NotificationListView.swift in Sources */,
 				A1C209122EBC4A2F003F256C /* NotificationListRowView.swift in Sources */,
@@ -2236,11 +2279,13 @@
 				A1C2091E2EBC4A2F003F256C /* UserProfile.swift in Sources */,
 				A1C2091F2EBC4A2F003F256C /* CustomDatePickerView.swift in Sources */,
 				A1C209202EBC4A2F003F256C /* LoginMainView.swift in Sources */,
+				A157D16C2F87AF96008728E5 /* SafetyVettingRemarkBottomSheetView.swift in Sources */,
 				A1C209212EBC4A2F003F256C /* CustomNavBarView.swift in Sources */,
 				A1C209222EBC4A2F003F256C /* SiteDiarySWACCard.swift in Sources */,
 				A1C209232EBC4A2F003F256C /* DayTypeChip.swift in Sources */,
 				A1C209242EBC4A2F003F256C /* SiteDiary.swift in Sources */,
 				A1C209252EBC4A2F003F256C /* Font.swift in Sources */,
+				A14E2DF22F972484003215D9 /* CSWRCard.swift in Sources */,
 				A1A97DFB2ECACF6100E7158B /* CustomToggleRowView.swift in Sources */,
 				A1C209262EBC4A2F003F256C /* StaffCard.swift in Sources */,
 				A1C209272EBC4A2F003F256C /* SWACDetailWorkerInfoView.swift in Sources */,
@@ -2452,13 +2497,13 @@
 				CODE_SIGN_ENTITLEMENTS = "dsd-swacs-staff/SupportingFiles/entitlements/dsd-swacs-staff-uat.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 26032001;
+				CURRENT_PROJECT_VERSION = 26080501;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = TKNQ9AL875;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "dsd-swacs-staff/SupportingFiles/plist/dsd-swacs-staff-uat-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "DSD SWACS UAT";
+				INFOPLIST_KEY_CFBundleDisplayName = "DSD SWIMS UAT";
 				INFOPLIST_KEY_NSCameraUsageDescription = "這個應用需要使用相機掃描 QR Code。";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "允許選擇圖片用於掃描 QR Code";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -2473,7 +2518,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.26.0;
+				MARKETING_VERSION = 1.26.6;
 				PRODUCT_BUNDLE_IDENTIFIER = hksarg.dsd.swacs.staff.uat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2482,6 +2527,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "UAT $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2496,13 +2542,13 @@
 				CODE_SIGN_ENTITLEMENTS = "dsd-swacs-staff/SupportingFiles/entitlements/dsd-swacs-staff-uat.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 26032001;
+				CURRENT_PROJECT_VERSION = 26080501;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = TKNQ9AL875;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "dsd-swacs-staff/SupportingFiles/plist/dsd-swacs-staff-uat-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "DSD SWACS UAT";
+				INFOPLIST_KEY_CFBundleDisplayName = "DSD SWIMS UAT";
 				INFOPLIST_KEY_NSCameraUsageDescription = "這個應用需要使用相機掃描 QR Code。";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "允許選擇圖片用於掃描 QR Code";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -2517,7 +2563,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.26.0;
+				MARKETING_VERSION = 1.26.6;
 				PRODUCT_BUNDLE_IDENTIFIER = hksarg.dsd.swacs.staff.uat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2526,6 +2572,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = UAT;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2542,13 +2589,13 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 26032001;
+				CURRENT_PROJECT_VERSION = 26061701;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 9XTXA97VW6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "dsd-swacs-staff/SupportingFiles/plist/dsd-swacs-staff-dev-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "DSD SWACS DEV";
+				INFOPLIST_KEY_CFBundleDisplayName = "DSD SWIMS DEV";
 				INFOPLIST_KEY_NSCameraUsageDescription = "這個應用需要使用相機掃描 QR Code。";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "允許選擇圖片用於掃描 QR Code";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -2563,7 +2610,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.26.0;
+				MARKETING_VERSION = 1.26.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dsd.swacs.staff.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2572,6 +2619,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEV $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2587,13 +2635,13 @@
 				CODE_SIGN_ENTITLEMENTS = "dsd-swacs-staff/SupportingFiles/entitlements/dsd-swacs-staff-dev.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 26032001;
+				CURRENT_PROJECT_VERSION = 26061701;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 9XTXA97VW6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "dsd-swacs-staff/SupportingFiles/plist/dsd-swacs-staff-dev-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "DSD SWACS DEV";
+				INFOPLIST_KEY_CFBundleDisplayName = "DSD SWIMS DEV";
 				INFOPLIST_KEY_NSCameraUsageDescription = "這個應用需要使用相機掃描 QR Code。";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "允許選擇圖片用於掃描 QR Code";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -2608,7 +2656,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.26.0;
+				MARKETING_VERSION = 1.26.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dsd.swacs.staff.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2617,6 +2665,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEV;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2631,13 +2680,13 @@
 				CODE_SIGN_ENTITLEMENTS = "dsd-swacs-staff/SupportingFiles/entitlements/dsd-swacs-staff-prod.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 26032001;
+				CURRENT_PROJECT_VERSION = 26061701;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = TKNQ9AL875;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "dsd-swacs-staff/SupportingFiles/plist/dsd-swacs-staff-prod-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "DSD SWACS";
+				INFOPLIST_KEY_CFBundleDisplayName = "DSD SWIMS";
 				INFOPLIST_KEY_NSCameraUsageDescription = "這個應用需要使用相機掃描 QR Code。";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "允許選擇圖片用於掃描 QR Code";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -2652,7 +2701,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.26.0;
+				MARKETING_VERSION = 1.26.2;
 				PRODUCT_BUNDLE_IDENTIFIER = hksarg.dsd.swacs.staff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2661,6 +2710,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "PROD $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2675,13 +2725,13 @@
 				CODE_SIGN_ENTITLEMENTS = "dsd-swacs-staff/SupportingFiles/entitlements/dsd-swacs-staff-prod.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 26032001;
+				CURRENT_PROJECT_VERSION = 26061701;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = TKNQ9AL875;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "dsd-swacs-staff/SupportingFiles/plist/dsd-swacs-staff-prod-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "DSD SWACS";
+				INFOPLIST_KEY_CFBundleDisplayName = "DSD SWIMS";
 				INFOPLIST_KEY_NSCameraUsageDescription = "這個應用需要使用相機掃描 QR Code。";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "允許選擇圖片用於掃描 QR Code";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -2696,7 +2746,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.26.0;
+				MARKETING_VERSION = 1.26.2;
 				PRODUCT_BUNDLE_IDENTIFIER = hksarg.dsd.swacs.staff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2705,6 +2755,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = PROD;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

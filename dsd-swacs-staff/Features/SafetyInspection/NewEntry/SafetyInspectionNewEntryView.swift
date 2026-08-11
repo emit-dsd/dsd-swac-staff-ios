@@ -17,7 +17,15 @@ struct SafetyInspectionNewEntryView: View {
     @State private var showPermitImagePicker = false
     @State private var showRAImagePicker = false
     @State private var showPermitCompletePicker = false
+
+    @State private var showPermitPickerOption = false
+    @State private var showRAPickerOption = false
+    @State private var showPermitCompletePickerOption = false
     
+    @State private var showPermitCameraPicker = false
+    @State private var showRACameraPicker = false
+    @State private var showPermitCompleteCameraPicker = false
+
     @State private var permitPickerImage: UIImage?
     @State private var raPickerImage: UIImage?
     @State private var permitCompletePickerImage: UIImage?
@@ -111,7 +119,9 @@ struct SafetyInspectionNewEntryView: View {
     private func imageSection(
         title: String,
         images: Binding<[ImageAsset]>,
-        showPicker: Binding<Bool>,
+        showPickerOption: Binding<Bool>,
+        showImagePicker: Binding<Bool>,
+        showCameraPicker: Binding<Bool>,
         pickerImage: Binding<UIImage?>,
         readOnly: Bool = false
     ) -> some View {
@@ -130,7 +140,7 @@ struct SafetyInspectionNewEntryView: View {
                         enabled: true,
                         isUnderline: true
                     ) {
-                        showPicker.wrappedValue = true
+                        showPickerOption.wrappedValue = true
                     }
                 }
             }
@@ -160,16 +170,52 @@ struct SafetyInspectionNewEntryView: View {
                     images: images,
                     imageSize: imageSize,
                     showCaption: false,
-                    onAdd: { showPicker.wrappedValue = true },
+                    onAdd: { showPickerOption.wrappedValue = true },
                     onRemove: { assetToRemove in
                         images.wrappedValue.removeAll { $0.id == assetToRemove.id }
                     },
                     onEdit: { asset in editingAsset = asset }
                 )
-                .sheet(isPresented: showPicker) {
-                    CustomImagePicker(image: pickerImage)
+            }
+        }
+        .sheet(isPresented: showImagePicker) {
+            CustomImagePicker(image: pickerImage, sourceType: .photoLibrary)
+        }
+        .fullScreenCover(isPresented: showCameraPicker) {
+            CustomImagePicker(image: pickerImage, sourceType: .camera)
+                .ignoresSafeArea()
+        }
+        .commonBottomSheet(isPresented: showPickerOption, detents: [.height(160)]) {
+            VStack(alignment: .leading, spacing: 16) {
+                CommonButton(
+                    title: "site_diary_detail_button_take_photo".localized(),
+                    style: .contained,
+                    enabled: true,
+                    maxWidth: .infinity
+                ) {
+                    showPickerOption.wrappedValue = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        showCameraPicker.wrappedValue = true
+                    }
+                }
+                
+                CommonButton(
+                    title: "site_diary_detail_button_select_from_gallery".localized(),
+                    style: .contained,
+                    enabled: true,
+                    maxWidth: .infinity
+                ) {
+                    showPickerOption.wrappedValue = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        showImagePicker.wrappedValue = true
+                    }
                 }
             }
+            .padding(.horizontal, 24)
+            .padding(.top, 24)
+            .padding(.bottom, 24)
+            .frame(maxWidth: .infinity, alignment: .topLeading)
+            .background(Color.white)
         }
     }
     
@@ -297,7 +343,9 @@ struct SafetyInspectionNewEntryView: View {
                                 imageSection(
                                     title: "safety_inspection_detail_label_permit_to_work".localized(),
                                     images: $viewModel.permitImages,
-                                    showPicker: $showPermitImagePicker,
+                                    showPickerOption: $showPermitPickerOption,
+                                    showImagePicker: $showPermitImagePicker,
+                                    showCameraPicker: $showPermitCameraPicker,
                                     pickerImage: $permitPickerImage,
                                     readOnly: !viewModel.canEditPartAImages
                                 )
@@ -310,7 +358,9 @@ struct SafetyInspectionNewEntryView: View {
                                 imageSection(
                                     title: "safety_inspection_detail_label_fresh_ra".localized(),
                                     images: $viewModel.raImages,
-                                    showPicker: $showRAImagePicker,
+                                    showPickerOption: $showRAPickerOption,
+                                    showImagePicker: $showRAImagePicker,
+                                    showCameraPicker: $showRACameraPicker,
                                     pickerImage: $raPickerImage,
                                     readOnly: !viewModel.canEditPartAImages
                                 )
@@ -326,7 +376,9 @@ struct SafetyInspectionNewEntryView: View {
                                 imageSection(
                                     title: "safety_inspection_detail_label_permit_to_work_complete".localized(),
                                     images: $viewModel.permitCompleteImages,
-                                    showPicker: $showPermitCompletePicker,
+                                    showPickerOption: $showPermitCompletePickerOption,
+                                    showImagePicker: $showPermitCompletePicker,
+                                    showCameraPicker: $showPermitCompleteCameraPicker,
                                     pickerImage: $permitCompletePickerImage,
                                     readOnly: !viewModel.canEditPartBImages
                                 )

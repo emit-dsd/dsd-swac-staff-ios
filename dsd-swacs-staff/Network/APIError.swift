@@ -15,15 +15,18 @@ struct APIErrorDetail: Decodable {
     let errors: [String: [String]]?
     let traceId: String?
     
-//    var userFriendlyMessage: String {
-//        if let detail = detail {
-//            return detail
-//        }
-//        if let errors = errors {
-//            return errors.flatMap { $0.value }.joined(separator: "\n")
-//        }
-//        return title ?? "發生未知錯誤"
-//    }
+    var userFriendlyMessage: String {
+        if let detail = detail, !detail.isEmpty {
+            return detail
+        }
+        if let errors = errors, !errors.isEmpty {
+            return errors.flatMap { $0.value }.joined(separator: "\n")
+        }
+        if let title = title, !title.isEmpty {
+            return title
+        }
+        return "發生未知錯誤"
+    }
 }
 
 enum APIError: Error {

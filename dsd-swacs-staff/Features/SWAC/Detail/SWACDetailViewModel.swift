@@ -12,6 +12,7 @@ import Combine
 class SWACDetailViewModel: ObservableObject {
     @Published var swacDetail: SWACDetail?
     @Published var isLoading = false
+    @Published var isSubmitting = false
     @Published var errorMessage: String?
     
     let swacNumber: String
@@ -38,5 +39,31 @@ class SWACDetailViewModel: ObservableObject {
             errorMessage = error.localizedDescription
         }
         isLoading = false
+    }
+    
+    /// Submit Safety Vetting Action
+    func submitSafetyVetting(isApprove: Bool, remarks: String) async -> Bool {
+        guard !isSubmitting else { return false }
+        isSubmitting = true
+        errorMessage = nil
+        
+        do {
+            let request = SafetyVettingRequest(swac: swacNumber, remarks: remarks)
+            if isApprove {
+                try await APIService.passSafetyVetting(request: request)
+            } else {
+                try await APIService.failSafetyVetting(request: request)
+            }
+            
+            isSubmitting = false
+            await fetchDetail()
+            
+            return true
+        } catch {
+            print("Submit safety vetting error:", error)
+            self.errorMessage = error.localizedDescription
+            self.isSubmitting = false
+            return false
+        }
     }
 }

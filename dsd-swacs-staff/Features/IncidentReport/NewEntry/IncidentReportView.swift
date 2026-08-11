@@ -22,7 +22,14 @@ struct IncidentReportView: View {
         VStack(spacing: 0) {
             CustomNavBarView(
                 type: .backOnly,
-                title: "new_incident_report_label_tiltle".localized()
+                title: "new_incident_report_label_tiltle".localized(),
+                onBackTapped: {
+                    if viewModel.hasUnsavedChanges {
+                        showLeaveAlert()
+                    } else {
+                        tabStore.popLastOnCurrentPath()
+                    }
+                }
             )
             
             ZStack(alignment: .top) {
@@ -207,6 +214,34 @@ struct IncidentReportView: View {
     }
     
     // MARK: - Alert Helpers
+    private func showLeaveAlert() {
+        alertManager.show(
+            title: "new_incident_report_alertTitle_leave".localized(),
+            message: "new_incident_report_alertMessage_leave".localized(),
+            buttons: [
+                CommonButtonModel(
+                    title: "new_incident_report_button_confirm_leave".localized(),
+                    style: .contained,
+                    enabled: true,
+                    maxWidth: .infinity,
+                    textColor: .white,
+                    backgroundColor: .red,
+                    action: {
+                        tabStore.popLastOnCurrentPath()
+                        alertManager.close()
+                    }
+                ),
+                CommonButtonModel(
+                    title: "general_cancel".localized(),
+                    style: .outlined,
+                    enabled: true,
+                    maxWidth: .infinity,
+                    action: { }
+                )
+            ]
+        )
+    }
+    
     private func showErrorAlert(message: String) {
         alertManager.show(
             title: "Error",

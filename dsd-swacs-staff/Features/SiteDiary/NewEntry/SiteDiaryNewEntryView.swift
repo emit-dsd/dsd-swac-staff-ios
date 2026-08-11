@@ -295,11 +295,15 @@ struct SiteDiaryNewEntryView: View {
                             displayFormat: .custom("yyyy-MM-dd")
                         )
                         
-                        WeatherSelector(selectedWeather: $viewModel.selectedWeather)
+                        WeatherSelector(selectedWeatherAM: $viewModel.selectedWeatherAM, selectedWeatherPM: $viewModel.selectedWeatherPM)
+                        
+                        labourSection
                         
                         descriptionSection
                         
                         instructionSection
+                        
+                        responsesSection
                         
                         imageSection
                         
@@ -328,6 +332,41 @@ struct SiteDiaryNewEntryView: View {
         .background(Color.white)
     }
     
+    private var labourSection: some View {
+        VStack(spacing: 8) {
+            HStack {
+                Text("site_diary_detail_label_no_of_labour".localized())
+                    .appFont(.robotoRegular, size: 14)
+                    .foregroundColor(Color.Primary800)
+                
+                Text("*")
+                    .appFont(.robotoRegular, size: 14)
+                    .foregroundColor(.red)
+                Spacer()
+            }
+            TextField(
+                "site_diary_detail_placeholder_no_of_labour".localized(),
+                text: Binding(
+                    get: {
+                        viewModel.labour.map { "\($0)" } ?? ""
+                    },
+                    set: { newValue in
+                        if newValue.isEmpty {
+                            viewModel.labour = nil
+                        } else if let intVal = Int(newValue.filter { $0.isNumber }) {
+                            viewModel.labour = min(255, max(0, intVal))
+                        }
+                    }
+                )
+            )
+            .appFont(.robotoRegular, size: 14)
+            .keyboardType(.numberPad)
+            .padding(12)
+            .background(Color.Neutral100)
+            .cornerRadius(8)
+        }
+    }
+
     private var descriptionSection: some View {
         VStack(spacing: 8) {
             Text(descriptionTitleAttributedString)
@@ -352,6 +391,21 @@ struct SiteDiaryNewEntryView: View {
            
             CustomPlaceholderTextEditor(
                 text: $viewModel.instructionText,
+                placeholder: "site_diary_detail_placeholder_type_here".localized()
+            )
+            .frame(height: 200)
+        }
+    }
+    
+    private var responsesSection: some View {
+        VStack(spacing: 8) {
+            Text("site_diary_detail_label_response_representative".localized())
+                .appFont(.robotoRegular, size: 14)
+                .foregroundColor(Color.Primary800)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            CustomPlaceholderTextEditor(
+                text: $viewModel.responseText,
                 placeholder: "site_diary_detail_placeholder_type_here".localized()
             )
             .frame(height: 200)

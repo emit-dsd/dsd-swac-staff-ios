@@ -37,13 +37,36 @@ struct SWACMainView: View {
         tabStore.appendToCurrentPath(Screen.notificationMain)
     }
     
-    func startWork(item:SWACListItem){
+    private func performAction(for item: SWACListItem) {
+        guard let selectedStatus = viewModel.selectedStatus,
+              let actionTitleKey = selectedStatus.actionTitleKey else { return }
+        
+        let titleKey: String
+        let messageKey: String
+        let confirmKey: String
+        switch selectedStatus {
+        case .approval:
+            titleKey = "start_work_alertTitle_approve_msg"
+            messageKey = "start_work_alertMessage_approve_msg"
+            confirmKey = "start_work_button_confirm_approve"
+        case .endorsement:
+            titleKey = "start_work_alertTitle_endorse_msg"
+            messageKey = "start_work_alertMessage_endorse_msg"
+            confirmKey = "start_work_button_confirm_endorse"
+        case .reject:
+            titleKey = "start_work_alertTitle_reject_msg"
+            messageKey = "start_work_alertMessage_reject_msg"
+            confirmKey = "start_work_button_confirm_reject"
+        case .safetyVetting:
+            return
+        }
+        
         alertManager.show(
-            title: "start_work_alertTitle_msg".localized(),
-            message: "start_work_alertMessage_msg".localized(),
+            title: titleKey.localized(),
+            message: messageKey.localized(),
             buttons: [
                 CommonButtonModel(
-                    title: "today_swac_button_start_work".localized(),
+                    title: confirmKey.localized(),
                     style: .contained,
                     enabled: true,
                     maxWidth: .infinity,
@@ -51,38 +74,16 @@ struct SWACMainView: View {
                     backgroundColor: .red,
                     action: {
                         Task {
-                            await viewModel.approveEntry(item: item)
-                        }
-                    }
-                ),
-                CommonButtonModel(
-                    title: "general_cancel".localized(),
-                    style: .outlined,
-                    enabled: true,
-                    maxWidth: .infinity,
-                    action: {
-                        
-                    }
-                )
-            ]
-        )
-    }
-    
-    func rejecrtWork(item:SWACListItem){
-        alertManager.show(
-            title: "start_work_alertTitle_reject_msg".localized(),
-            message: "start_work_alertMessage_reject_msg".localized(),
-            buttons: [
-                CommonButtonModel(
-                    title: "today_swac_button_reject".localized(),
-                    style: .contained,
-                    enabled: true,
-                    maxWidth: .infinity,
-                    textColor: .white,
-                    backgroundColor: .red,
-                    action: {
-                        Task {
-                            await viewModel.rejectEntry(item: item)
+                            switch selectedStatus {
+                            case .approval:
+                                await viewModel.approveEntry(item: item)
+                            case .endorsement:
+                                await viewModel.endorseRegistration(item: item)
+                            case .reject:
+                                await viewModel.rejectEntry(item: item)
+                            case .safetyVetting:
+                                break
+                            }
                         }
                     }
                 ),
@@ -133,7 +134,7 @@ struct SWACMainView: View {
                         Spacer()
                         Text("swac_main_label_total_count".localized().replacingOccurrences(
                             of: "{R1}",
-                            with: viewModel.selectedStatus == nil ? "-" : "\(viewModel.swacList.count)"
+                            with: (viewModel.selectedStatus == nil && !viewModel.isSearchActive) ? "-" : "\(viewModel.swacList.count)"
                         ))
                         .appFont(.robotoRegular, size: 14)
                         .multilineTextAlignment(.trailing)
@@ -184,26 +185,39 @@ struct SWACMainView: View {
         ScrollView {
             LazyVStack(spacing: 8) {
                 ForEach(viewModel.swacList, id: \.uniqueID) { swac in
-                    SWACCard(
-                        swac: swac,
-                        showActionButton: viewModel.selectedStatus == .registeredSiteWork,
-                        showCSWRStatus: viewModel.selectedStatus == .registeredSiteWork,
-                        onConfirmActionButtonTapped: { swac in
-                            NSLog("onConfirmActionButtonTapped")
-                            startWork(item:swac)
-                        },
-                        onRejectActionButtonTapped: { swac in
-                            NSLog("onRejectActionButtonTapped")
-                            rejecrtWork(item:swac)
+                    if !viewModel.isSearchActive && viewModel.selectedStatus?.actionTitleKey != nil {
+                        CSWRCard(
+                            swac: swac,
+                            actionTitle: viewModel.selectedStatus!.actionTitleKey!.localized(),
+                            actionButtonStyle: viewModel.selectedStatus == .reject ? .outlined : .contained,
+                            onActionButtonTapped: { swac in
+                                performAction(for: swac)
+                            }
+                        )
+                        .onTapGesture {
+                            tabStore.appendToCurrentPath(Screen.swacDetail(swac.number))
                         }
-                    )
-                    .onTapGesture {
-                        tabStore.appendToCurrentPath(Screen.swacDetail(swac.number))
-                    }
-                    .onAppear {
-                        if viewModel.hasReachedEnd(of: swac) {
-                            Task {
-                                await viewModel.loadMoreItems()
+                        .onAppear {
+                            if viewModel.hasReachedEnd(of: swac) {
+                                Task {
+                                    await viewModel.loadMoreItems()
+                                }
+                            }
+                        }
+                    }else {
+                        SWACCard(
+                            swac: swac,
+                            showActionButton: false,
+                            showCSWRStatus: false
+                        )
+                        .onTapGesture {
+                            tabStore.appendToCurrentPath(Screen.swacDetail(swac.number))
+                        }
+                        .onAppear {
+                            if viewModel.hasReachedEnd(of: swac) {
+                                Task {
+                                    await viewModel.loadMoreItems()
+                                }
                             }
                         }
                     }

@@ -30,6 +30,7 @@ final class AlertManager: ObservableObject {
         let imageSize: CGFloat
         let buttons: [CommonButtonModel]
         let customContent: AnyView?
+        let autoCloseButtons: Bool
         
         var isCustom: Bool {
             customContent != nil
@@ -44,7 +45,8 @@ final class AlertManager: ObservableObject {
         message: String,
         image: String? = nil,
         imageSize: CGFloat = 260,
-        buttons: [CommonButtonModel]
+        buttons: [CommonButtonModel],
+        autoCloseButtons: Bool = true
     ) {
         let item = AlertItem(
             title: title,
@@ -52,7 +54,8 @@ final class AlertManager: ObservableObject {
             image: image,
             imageSize: imageSize,
             buttons: buttons,
-            customContent: nil
+            customContent: nil,
+            autoCloseButtons: autoCloseButtons
         )
         enqueue(item)
     }
@@ -65,7 +68,8 @@ final class AlertManager: ObservableObject {
             image: nil,
             imageSize: 0,
             buttons: [],
-            customContent: AnyView(content)
+            customContent: AnyView(content),
+            autoCloseButtons: true
         )
         enqueue(item)
     }
@@ -214,7 +218,9 @@ struct GlobalAlertOverlay: ViewModifier {
                             backgroundColor: button.backgroundColor,
                             action: {
                                 button.action()
-                                alertManager.close()
+                                if alert.autoCloseButtons {
+                                    alertManager.close()
+                                }
                             }
                         )
                     }

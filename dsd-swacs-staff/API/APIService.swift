@@ -27,7 +27,16 @@ struct APIService {
             options: [.noDefaultErrorAlert]
         )
     }
-
+    
+    static func getReleaseNotes(appTypeId: Int) async throws -> ReleaseNotes {
+        return try await APIManager.shared.sendAPIRequest(
+            .GET,
+            path: "\(APIPath.getReleaseNotes)/\(appTypeId)",
+            body: EmptyBody(),
+            options: [.noLoading, .noDefaultErrorAlert]
+        )
+    }
+    
     // MARK: - Device Token
     static func registerMobileToken(_ fcmToken: String) async throws {
         let _: EmptyResponse = try await APIManager.shared.sendAPIRequest(
@@ -109,7 +118,7 @@ struct APIService {
     }
     
     // MARK: - SWAC
-    static func swacList(request: SwacListRequest) async throws -> [SWACListItemResponse] {
+    static func swacList(request: SwacListRequest) async throws -> [SWACDetailResponse] {
         return try await APIManager.shared.sendAPIRequest(
             .POST,
             path: APIPath.swacList,
@@ -193,6 +202,35 @@ struct APIService {
         )
     }
     
+    // MARK: - SWAC Safety Vetting
+    static func getSafetyVettingList(page: Int, pageSize: Int) async throws -> [SWACDetailResponse] {
+        let request = SWACSimplePageRequest(page: page, pageSize: pageSize)
+        return try await APIManager.shared.sendAPIRequest(
+            .POST,
+            path: APIPath.safetyVettingList,
+            body: request,
+            options: [.noLoading]
+        )
+    }
+    
+    static func passSafetyVetting(request: SafetyVettingRequest) async throws {
+        let _: EmptyResponse = try await APIManager.shared.sendAPIRequest(
+            .POST,
+            path: APIPath.passSafetyVetting,
+            body: request,
+            options: []
+        )
+    }
+    
+    static func failSafetyVetting(request: SafetyVettingRequest) async throws {
+        let _: EmptyResponse = try await APIManager.shared.sendAPIRequest(
+            .POST,
+            path: APIPath.failSafetyVetting,
+            body: request,
+            options: []
+        )
+    }
+    
     // MARK: - Incident Report
     
     static func submitIncidentReport(parameters: [String: String], files: [MultipartFile] = []) async throws -> Int {
@@ -202,7 +240,7 @@ struct APIService {
             parameters: parameters,
             files: files
         )
-
+        
         return try await APIManager.shared.uploadMultipartRequest(apiRequest)
     }
     
@@ -270,19 +308,21 @@ struct APIService {
     }
     
     static func getApproverByRCC(rcc: Int) async throws -> [StaffApproverResponse] {
-         return try await APIManager.shared.sendAPIRequest(
-             .POST,
-             path: APIPath.getApproverByRCC,
-             body: rcc,
-             options: [.noDefaultErrorAlert]
-         )
-     }
+        return try await APIManager.shared.sendAPIRequest(
+            .POST,
+            path: APIPath.getApproverByRCC,
+            body: rcc,
+            options: [.noDefaultErrorAlert]
+        )
+    }
     
     static func submitSiteDiary(
         instruction: String,
         response: String,
         swac: String,
-        weather: Int,
+        weatherAM: Int?,
+        weatherPM: Int?,
+        labour: Int?,
         workActivity: String,
         date: String, // Format: "2025-12-08"
         approver: String,
@@ -295,12 +335,19 @@ struct APIService {
             "Profile.Instruction": instruction,
             "Profile.Response": response,
             "Profile.SWAC": swac,
-            "Profile.Weather": "\(weather)",
             "Profile.WorkActivity": workActivity,
             "Profile.Date": date,
             "Profile.Approver": approver
         ]
-        
+        if let weatherAM = weatherAM {
+            parameters["Profile.WeatherAM"] = "\(weatherAM)"
+        }
+        if let weatherPM = weatherPM {
+            parameters["Profile.WeatherPM"] = "\(weatherPM)"
+        }
+        if let labour = labour {
+            parameters["Profile.Labour"] = "\(labour)"
+        }
         // 加入 Attachment metadata
         for (index, attachment) in attachments.enumerated() {
             parameters["Attachment[\(index)].Subject"] = attachment.subject
@@ -345,7 +392,7 @@ struct APIService {
     }
     
     // MARK: - Safety Inspection
-
+    
     static func getSafetyInspectionList(
         swac: String,
         page: Int = 1,
@@ -430,12 +477,12 @@ struct APIService {
         }
         
         // Items
-//        let answeredItems = flattenItems(items).filter { $0.hasAnswer }
+        //        let answeredItems = flattenItems(items).filter { $0.hasAnswer }
         
         let targetItems = flattenItems(items)
         
         for (i, item) in targetItems.enumerated() {
-    
+            
             parameters["Item[\(i)].Category"] = String(item.rowID)
             
             if item.itemType == .text {
@@ -466,7 +513,7 @@ struct APIService {
                 }
             }
             
-      
+            
             if !item.remark.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                 parameters["Item[\(i)].Remarks"] = item.remark
             }
@@ -550,7 +597,7 @@ struct APIService {
         let req = MultipartAPIRequest(.POST, path: APIPath.closeSafetyInspection, parameters: parameters, files: files)
         return try await APIManager.shared.uploadMultipartRequest(req)
     }
-
+    
     
     // Helper to flatten items
     private static func flattenItems(_ items: [ChecklistItem]) -> [ChecklistItem] {
@@ -561,8 +608,38 @@ struct APIService {
         }
         return result
     }
-
+    
     // MARK: - CSWR
+    static func getApprovalList(page: Int, pageSize: Int) async throws -> [SiteWorkProfileResponse] {
+        let request = SWACSimplePageRequest(page: page, pageSize: pageSize)
+        return try await APIManager.shared.sendAPIRequest(
+            .POST,
+            path: APIPath.approvalList,
+            body: request,
+            options: [.noLoading]
+        )
+    }
+    
+    static func getEndorsementList(page: Int, pageSize: Int) async throws -> [SiteWorkProfileResponse] {
+        let request = SWACSimplePageRequest(page: page, pageSize: pageSize)
+        return try await APIManager.shared.sendAPIRequest(
+            .POST,
+            path: APIPath.endorsementList,
+            body: request,
+            options: [.noLoading]
+        )
+    }
+    
+    static func getRejectList(page: Int, pageSize: Int) async throws -> [SiteWorkProfileResponse] {
+        let request = SWACSimplePageRequest(page: page, pageSize: pageSize)
+        return try await APIManager.shared.sendAPIRequest(
+            .POST,
+            path: APIPath.rejectList,
+            body: request,
+            options: [.noLoading]
+        )
+    }
+    
     static func cswrApproveEntry(entryId: Int) async throws {
         let _: EmptyResponse = try await APIManager.shared.sendAPIRequest(
             .POST,
@@ -578,6 +655,15 @@ struct APIService {
             path: APIPath.cswrRejectEntry,
             body: entryId,
             options: .noDefaultErrorAlert
+        )
+    }
+    
+    static func cswrEndorseRegistration(entryId: Int) async throws {
+        let _: EmptyResponse = try await APIManager.shared.sendAPIRequest(
+            .POST,
+            path: APIPath.cswrEndorseRegistration,
+            body: entryId,
+            options: []
         )
     }
 }

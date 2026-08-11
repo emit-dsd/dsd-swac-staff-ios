@@ -23,7 +23,7 @@ struct HomeView: View {
     
     private let cardWidth: CGFloat = 361
     private let cardSpacing: CGFloat = 8
-
+    
     // MARK: - button Action
     func notificationMain() {
         tabStore.appendToCurrentPath(Screen.notificationMain)
@@ -65,7 +65,7 @@ struct HomeView: View {
     
     func signIn() {
         print("Sign In pressed")
-    
+        
         activeBottomSheet = .none
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -84,7 +84,7 @@ struct HomeView: View {
                         }
                     }
                 }, onFail: {
-                    //                showErrorPopup()
+                    // showErrorPopup()
                 })
             )
         }
@@ -108,7 +108,7 @@ struct HomeView: View {
                         }
                     }
                 }, onFail: {
-                    //                showErrorPopup()
+                    // showErrorPopup()
                 })
             )
         }
@@ -190,7 +190,6 @@ struct HomeView: View {
             tabStore.appendToCurrentPath(Screen.scanResult(nil, error.userMessage, false))
         }
     }
-
     
     // MARK: - View
     var QuickActionSection: some View {
@@ -241,7 +240,7 @@ struct HomeView: View {
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 60)
                 } else {
-                    ForEach(viewModel.todaySWACList, id: \.uniqueID) { swac in
+                    ForEach(viewModel.todaySWACList, id: \.number) { swac in
                         HomeSWACCard(
                             swac: swac,
                             showActionButton: false,
@@ -256,7 +255,7 @@ struct HomeView: View {
                         }
                         .onAppear {
                             // ✅ Pagination 邏輯保持不變，LazyVStack 會正確觸發
-                            if swac.id == viewModel.todaySWACList.last?.id {
+                            if swac.number == viewModel.todaySWACList.last?.number {
                                 Task {
                                     await viewModel.loadMoreItems()
                                 }
@@ -294,7 +293,6 @@ struct HomeView: View {
         }
     }
     
-    
     // MARK: - body
     var body: some View {
         VStack(spacing: 0){
@@ -316,11 +314,11 @@ struct HomeView: View {
                 .refreshable {
                     await viewModel.refreshList()
                 }
-                .background(Color.white)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             }
+            .background(Color.white)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         }
-        .commonBottomSheet(isPresented: Binding<Bool>(
+        .commonBottomSheet(isPresented: Binding(
             get: { activeBottomSheet != .none },
             set: { isPresented in
                 if !isPresented {
@@ -396,7 +394,6 @@ struct HomeView: View {
                         }
                     )
                 }
-                
             default:
                 EmptyView()
             }
@@ -415,7 +412,6 @@ struct HomeView_Previews: PreviewProvider {
         VStack {
             HomeView()
                 .environmentObject(TabNavigationStore())
-            
         }
     }
 }

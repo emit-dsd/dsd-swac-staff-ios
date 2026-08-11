@@ -72,15 +72,11 @@ struct SiteDiaryDetailDiaryView: View {
         HStack(alignment: .top, spacing: 24) {
             InfoRowView(title: "site_diary_detail_label_date".localized(), value: siteDiary.dateDisplayString)
             
-            if let status = WeatherStatus(rawValue: siteDiary.weather) {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("site_diary_detail_label_weather_status".localized())
-                        .appFont(.robotoRegular, size: 14)
-                        .foregroundColor(.Neutral500)
-                    WeatherIconView(status:status)
-                }
-                .frame(maxWidth: .infinity, alignment: .topLeading)
-            }
+            WeatherStatusView(
+                weatherAM: siteDiary.weatherStatusAM,
+                weatherPM: siteDiary.weatherStatusPM
+            )
+            .frame(maxWidth: .infinity, alignment: .topLeading)
         }
     }
     
@@ -95,6 +91,13 @@ struct SiteDiaryDetailDiaryView: View {
                 value: siteDiary.contractor ?? "-"
             )
         }
+    }
+    
+    var labourSection: some View {
+        InfoRowView(
+            title: "site_diary_detail_label_no_of_labour".localized(),
+            value: siteDiary.labour.map { String($0) } ?? "-"
+        )
     }
     
     @ViewBuilder
@@ -148,23 +151,19 @@ struct SiteDiaryDetailDiaryView: View {
     
     var instructionSection: some View {
         Group {
-            if let instruction = siteDiary.instruction, siteDiary.hasInstruction {
-                InfoRowView(
-                    title: "site_diary_detail_label_instructions_representative".localized(),
-                    value: instruction
-                )
-            }
+            InfoRowView(
+                title: "site_diary_detail_label_instructions_representative".localized(),
+                value: siteDiary.instruction ?? "-"
+            )
         }
     }
     
     var responseSection: some View {
         Group {
-            if let response = siteDiary.response, siteDiary.hasResponse {
-                InfoRowView(
-                    title: "site_diary_detail_label_response_representative".localized(),
-                    value: response
-                )
-            }
+            InfoRowView(
+                title: "site_diary_detail_label_response_representative".localized(),
+                value: siteDiary.response ?? "-"
+            )
         }
     }
     
@@ -225,6 +224,7 @@ struct SiteDiaryDetailDiaryView: View {
             statusSection
             dateAndWeatherSection
             representativeSection
+            labourSection
             workActivitySection
             instructionSection
             responseSection

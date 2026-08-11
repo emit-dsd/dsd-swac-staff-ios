@@ -289,7 +289,7 @@ final class APIManager: ObservableObject {
     
     private func handleErrorResponse(statusCode: Int, data: Data, options: RequestOptions) throws {
         if let detail = try? JSONDecoder().decode(APIErrorDetail.self, from: data) {
-            throw APIError.server(statusCode, detail.title, detail.detail)
+            throw APIError.server(statusCode, detail.title, detail.userFriendlyMessage)
         } else {
             let msg = String(data: data, encoding: .utf8) ?? "未知錯誤"
             throw APIError.server(statusCode, "", msg)
@@ -426,7 +426,7 @@ final class APIManager: ObservableObject {
             default:
                 NetworkLogger.logFailure(request: apiReq, response: http, responseData: data)
                 if let detail = try? JSONDecoder().decode(APIErrorDetail.self, from: data) {
-                    throw APIError.server(http.statusCode, detail.title, detail.detail)
+                    throw APIError.server(http.statusCode, detail.title, detail.userFriendlyMessage)
                 } else {
                     let msg = String(data: data, encoding: .utf8) ?? "未知錯誤"
                     throw APIError.server(http.statusCode, "", msg)

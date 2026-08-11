@@ -45,18 +45,6 @@ struct HomeSWACCard: View {
                         DateChip(dateText:swac.finishTime.toString(format: "yyyy-MM-dd"), fillWidth: true)
                     }
                 }
-                
-                if swac.needSiteWorkStartApproval && showActionButton {
-                    CommonButton(title: "today_swac_button_start_work".localized(),
-                                 style: .contained,
-                                 enabled: true,
-                                 maxWidth: .infinity,
-                                 textColor: Color.white,
-                                 backgroundColor: Color.red,
-                                 action: {
-                        onActionButtonTapped(swac)
-                    })
-                }
             }
             .padding(.horizontal, 12)
             .padding(.vertical, 24)

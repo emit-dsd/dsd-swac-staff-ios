@@ -6,6 +6,19 @@
     {
       "layers" : [
         {
+          "glass" : false,
+          "image-name" : "uat.svg",
+          "name" : "uat",
+          "opacity" : 1,
+          "position" : {
+            "scale" : 1,
+            "translation-in-points" : [
+              246.69140625,
+              244.93359375
+            ]
+          }
+        },
+        {
           "blend-mode" : "normal",
           "fill" : {
             "linear-gradient" : [
@@ -28,10 +41,10 @@
           "image-name" : "Vector.svg",
           "name" : "Vector",
           "position" : {
-            "scale" : 1.05,
+            "scale" : 1,
             "translation-in-points" : [
-              33.9,
-              0
+              -0.7640624999999943,
+              1.74609375
             ]
           }
         }

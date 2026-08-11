@@ -25,7 +25,7 @@ class IncidentReportViewModel: ObservableObject {
     @Published var contactPerson = ""
     @Published var contractor = ""
     
-
+    
     @Published var currentStaffName: String? {
         didSet {
             if let name = currentStaffName, contactPerson.isEmpty {
@@ -42,7 +42,7 @@ class IncidentReportViewModel: ObservableObject {
     @Published var showSuccess = false
     
     // Detail model
-    @Published var submittedReportId: Int? 
+    @Published var submittedReportId: Int?
     
     // MARK: - Public Methods
     func setCurrentStaffName(_ name: String) {
@@ -56,7 +56,7 @@ class IncidentReportViewModel: ObservableObject {
         let hongKongTimeZone = TimeZone(identifier: "Asia/Hong_Kong")!
         var calendar = Calendar.current
         calendar.timeZone = hongKongTimeZone
-
+        
         let dateComponents = calendar.dateComponents([.year, .month, .day], from: date)
         let timeComponents = calendar.dateComponents([.hour, .minute], from: time)
         
@@ -70,7 +70,16 @@ class IncidentReportViewModel: ObservableObject {
         
         return calendar.date(from: combined) ?? Date()
     }
-
+    
+    
+    // MARK: - Validation & State
+    var hasUnsavedChanges: Bool {
+        return !location.isEmpty ||
+        !brief.isEmpty ||
+        !swac.isEmpty ||
+        (!contactPerson.isEmpty && contactPerson != (currentStaffName ?? "")) ||
+        !contractor.isEmpty
+    }
     
     /// Check if form is valid
     var isFormValid: Bool {

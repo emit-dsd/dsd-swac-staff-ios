@@ -20,7 +20,11 @@ struct NotificationListRequest: Codable {
 struct SwacListRequest: Codable {
     let page: Int
     let pageSize: Int
-    let state: Int?
+}
+
+struct SWACSimplePageRequest: Codable {
+    let page: Int
+    let pageSize: Int
 }
 
 struct SwacSearchRequest: Codable {
@@ -71,6 +75,11 @@ struct AttendanceMemberRequest: Codable {
         self.page = page
         self.pageSize = pageSize
     }
+}
+
+struct SafetyVettingRequest: Codable {
+    let swac: String
+    let remarks: String
 }
 
 struct IncidentReportListRequest: Codable {

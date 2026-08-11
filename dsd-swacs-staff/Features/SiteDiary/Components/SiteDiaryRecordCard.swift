@@ -21,9 +21,10 @@ struct SiteDiaryCard: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .topLeading)
                 
-                if let status = WeatherStatus(rawValue: siteDiary.weather) {
-                    WeatherStatusView(status:status)
-                }
+                WeatherStatusView(
+                    weatherAM: siteDiary.weatherStatusAM,
+                    weatherPM: siteDiary.weatherStatusPM
+                )
             }
             .frame(maxWidth: .infinity, alignment: .topLeading)
             

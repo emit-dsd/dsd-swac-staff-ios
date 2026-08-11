@@ -61,12 +61,14 @@ enum WeatherStatus: Int, CaseIterable {
     case fine = 1
     case cloudy = 2
     case rainy = 3
+    case thunder = 4
 
     var imageName: String {
         switch self {
         case .fine: return "icon-weather-sun"
         case .cloudy: return "icon-weather-cloud"
         case .rainy: return "icon-weather-rainy"
+        case .thunder: return "icon-weather-thunder"
         }
     }
 
@@ -75,6 +77,7 @@ enum WeatherStatus: Int, CaseIterable {
         case .fine: return "site_diary_detail_label_weather_fine".localized()
         case .cloudy: return "site_diary_detail_label_weather_cloudy".localized()
         case .rainy: return "site_diary_detail_label_weather_rainy".localized()
+        case .thunder: return "site_diary_detail_label_weather_thunder".localized()
         }
     }
 }
@@ -85,7 +88,9 @@ struct SiteDiary: Codable, Identifiable, Hashable {
     let swac: String
     let approver: String?
     let date: String
-    let weather: Int
+    let weatherAM: Int?
+    let weatherPM: Int?
+    let labour: Int?
     let workActivity: String
     let instruction: String?
     let response: String?
@@ -99,7 +104,9 @@ struct SiteDiary: Codable, Identifiable, Hashable {
         self.swac = response.swac
         self.approver = response.approver
         self.date = response.date
-        self.weather = response.weather
+        self.weatherAM = response.weatherAM
+        self.weatherPM = response.weatherPM
+        self.labour = response.labour
         self.workActivity = response.workActivity
         self.instruction = response.instruction
         self.response = response.response
@@ -114,7 +121,9 @@ struct SiteDiary: Codable, Identifiable, Hashable {
         self.swac = response.swac
         self.approver = response.approver
         self.date = response.date
-        self.weather = response.weather
+        self.weatherAM = response.weatherAM
+        self.weatherPM = response.weatherPM
+        self.labour = response.labour
         self.workActivity = response.workActivity
         self.instruction = response.instruction
         self.response = response.response
@@ -127,9 +136,11 @@ struct SiteDiary: Codable, Identifiable, Hashable {
     init(
         id: Int,
         swac: String,
-        approver: String,
+        approver: String?,
         date: String,
-        weather: Int,
+        weatherAM: Int?,
+        weatherPM: Int?,
+        labour: Int?,
         workActivity: String,
         instruction: String?,
         response: String?,
@@ -142,7 +153,9 @@ struct SiteDiary: Codable, Identifiable, Hashable {
         self.swac = swac
         self.approver = approver
         self.date = date
-        self.weather = weather
+        self.weatherAM = weatherAM
+        self.weatherPM = weatherPM
+        self.labour = labour
         self.workActivity = workActivity
         self.instruction = instruction
         self.response = response
@@ -159,9 +172,15 @@ struct SiteDiary: Codable, Identifiable, Hashable {
         return SiteDiaryStatus(rawValue: state) ?? .rejected
     }
     
-    /// Weather status enum
-    var weatherStatus: WeatherStatus? {
-        return WeatherStatus(rawValue: weather)
+    /// AM weather status (as WeatherStatus enum)
+    var weatherStatusAM: WeatherStatus? {
+        guard let weatherAM = weatherAM else { return nil }
+        return WeatherStatus(rawValue: weatherAM)
+    }
+    /// PM weather status (as WeatherStatus enum)
+    var weatherStatusPM: WeatherStatus? {
+        guard let weatherPM = weatherPM else { return nil }
+        return WeatherStatus(rawValue: weatherPM)
     }
     
     /// Formatted date
@@ -234,7 +253,9 @@ extension SiteDiary {
         swac: "0099",
         approver: "ksfong02",
         date: "2025-12-10",
-        weather: 1,
+        weatherAM: 1,
+        weatherPM: nil,
+        labour: nil,
         workActivity: "Mobile test",
         instruction: nil,
         response: nil,
@@ -249,7 +270,9 @@ extension SiteDiary {
         swac: "0099",
         approver: "ksfong02",
         date: "2025-12-10",
-        weather: 1,
+        weatherAM: 1,
+        weatherPM: nil,
+        labour: nil,
         workActivity: "test",
         instruction: nil,
         response: nil,
@@ -264,7 +287,9 @@ extension SiteDiary {
         swac: "0099",
         approver: "ksfong02",
         date: "2025-12-08",
-        weather: 3,
+        weatherAM: 3,
+        weatherPM: nil,
+        labour: nil,
         workActivity: "Carry out confined space works today",
         instruction: "This is my instructions to contractor",
         response: "This is contractor's response",
@@ -279,7 +304,9 @@ extension SiteDiary {
         swac: "0099",
         approver: "ksfong02",
         date: "2025-11-26",
-        weather: 3,
+        weatherAM: 3,
+        weatherPM: nil,
+        labour: nil,
         workActivity: "Carry out confined space works today",
         instruction: "This is my instructions to contractor",
         response: nil,
@@ -294,7 +321,9 @@ extension SiteDiary {
         swac: "0099",
         approver: "ksfong02",
         date: "2025-12-09",
-        weather: 2,
+        weatherAM: 2,
+        weatherPM: nil,
+        labour: nil,
         workActivity: "Test rejected",
         instruction: nil,
         response: nil,
@@ -309,7 +338,9 @@ extension SiteDiary {
         swac: "0099",
         approver: "ksfong02",
         date: "2025-12-01",
-        weather: 1,
+        weatherAM: 1,
+        weatherPM: nil,
+        labour: nil,
         workActivity: "Completed work",
         instruction: "Final instructions",
         response: "Work completed",

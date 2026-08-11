@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   dsd-swacs-staff
 
@@ -9,20 +9,22 @@
 /* General */
 "general_done" = "完成";
 "general_cancel" = "取消";
-"general_confirm" = "確定";
+"general_confirm" = "確認";
 "general_back" = "返回";
 "general_reset" = "重置";
 "general_retry" = "重試";
-"general_submit" = "提交";
+"general_submit" = "遞交";
+"general_update" = "更新";
 "general_yes" = "是";
 "general_no" = "否";
 "general_continue" = "繼續";
 "general_next" = "繼續";
-"general_no_results" = "沒有找到結果";
+"general_no_results" = "沒有找到記錄";
 "general_no_more_data" = "沒有更多資料";
 "general_alertTitle_no_network" = "無網絡連線";
 "general_alertMessage_no_network" = "請檢查您的網絡連線後再試。";
-"general_alertTitle_server Error" = "伺服器錯誤";
+"general_alertTitle_server_error" = "伺服器錯誤";
+"general_alertTitle_version_update" = "新版本現已推出";
 
 /* language */
 "language_label_english" = "ENG";
@@ -30,11 +32,11 @@
 
 /* Login */
 "login_label_department_title" = "渠務署";
-"login_label_system_title" = "工地工作許可證系統";
+"login_label_system_title" = "智慧工地工作資訊與管理系統";
 "login_label_login_name" = "登入名稱";
 "login_label_password" = "密碼";
 "login_button_login" = "登入";
-"login_label_copyright" = "版權所有 © 2025（渠務署）。保留所有權利。";
+"login_label_copyright" = "版權所有 © 2026（渠務署）。保留所有權利。";
 "login_label_version" = "版本";
 "login_alertTitle_login_expired" = "登入已過期";
 "login_alertMessage_login_expired" = "您的登入已過期，請重新登入";
@@ -50,10 +52,10 @@
 "camera_button_settings" = "前往設定";
 
 /* Tab Bar */
-"tab_bar_button_home" = "主頁";
-"tab_bar_button_swac" = "SWAC";
+"tab_bar_button_home" = "首頁";
+"tab_bar_button_swac" = "工作許可證";
 "tab_bar_button_siteDiary" = "工地日誌";
-"tab_bar_button_safety" = "安全清單";
+"tab_bar_button_safety" = "安全檢查";
 "tab_bar_button_setting" = "設定";
 
 /* DateFilter */
@@ -84,106 +86,118 @@
 "notification_label_time_year_ago" = "{R1} 年前";
 
 /* Home */
-"home_label_welecome_back" = "歡迎回來";
+"home_label_welecome_back" = "歡迎";
 
 /* Quick Action */
-"quick_action_label_title" = "快捷操作";
-"quick_action_button_scan_qr_code" = "簽到/退出";
-"quick_action_button_new_site_diary" = "新增工地日誌";
+"quick_action_label_title" = "我的行動";
+"quick_action_button_scan_qr_code" = "簽到 / 簽退";
+"quick_action_button_new_site_diary" = "工地日誌";
 "quick_action_button_safety_inspection" = "安全檢查";
 "quick_action_button_brief_incident_report" = "事故簡報";
-"quick_action_button_scan_qr_code_check" = "二維碼檢查";
-"quick_action_label_sign_title" = "二維碼掃碼簽到/退出";
+"quick_action_button_scan_qr_code_check" = "進入二維碼";
+"quick_action_label_sign_title" = "進入二維碼簽到 / 簽退";
 "quick_action_button_sign_in" = "簽到";
-"quick_action_button_sign_out" = "退出";
-"quick_action_label_select_swac" = "選擇 SWAC";
-"quick_action_label_no_right_of_submission" = "沒有權限提交";
+"quick_action_button_sign_out" = "簽退";
+"quick_action_label_select_swac" = "選擇工作許可證";
+"quick_action_label_no_right_of_submission" = "沒有權限遞交";
 
 /* Quick Action - Scan Sign In/Out */
-"scan_qr_code_label_sign_in_title" = "二維碼簽到";
+"scan_qr_code_label_sign_in_title" = "進入二維碼簽到";
 "scan_qr_code_label_sign_in_successful" = "簽到成功";
 "scan_qr_code_button_continue_scan" = "繼續掃碼";
-"scan_qr_code_label_sign_out_title" = "二維碼退出";
+"scan_qr_code_label_sign_out_title" = "進入二維碼簽退";
 "scan_qr_code_label_sign_out_successful" = "退出成功";
-"scan_qr_code_label_swac_info" = "SWAC 資料";
-"scan_qr_code_label_swac_no" = "SWAC編號";
-"scan_qr_code_label_contractor" = "承辦商";
+"scan_qr_code_label_swac_info" = "工作許可證資料";
+"scan_qr_code_label_swac_no" = "工作許可證編號";
+"scan_qr_code_label_contractor" = "公司";
 "scan_qr_code_label_working_team_member" = "施工隊成員";
-"scan_qr_code_label_role" = "職位";
+"scan_qr_code_label_role" = "角色";
 "scan_qr_code_alertButton_retry" = "重試";
 "scan_qr_code_alertButton_back" = "返回";
-"scan_qr_code_failed_alertTitle_msg" = "二維碼掃碼失敗";
-"scan_qr_code_failed_alertMessage_msg" = "此 二維碼無效或為錯誤的二維碼。請掃描有效的二維碼以記錄您的出席。";
-"scan_qr_code_label_swac_check_title" = "SWAC 二維碼檢查";
-"scan_qr_code_label_startTime" = "開始時間";
-"scan_qr_code_label_endTime" = "結束時間";
-"scan_qr_code_label_verify_success_msg" = "這是一個有效的 SWAC 存取二維碼";
-"scan_qr_code_label_verify_fail_msg" = "這是一個無效的 SWAC 存取二維碼（超出核准的時間範圍）";
-"scan_qr_code_label_verify_wrong_format_msg" = "這是一個無效的 SWAC 存取二維碼（格式錯誤）";
+"scan_qr_code_failed_alertTitle_msg" = "進入二維碼掃碼失敗";
+"scan_qr_code_failed_alertMessage_msg" = "此進入二維碼無效或錯誤。請掃描有效的二維碼以記錄您的出席。";
+"scan_qr_code_label_swac_check_title" = "檢查進入二維碼";
+"scan_qr_code_label_startTime" = "開工日期及時間";
+"scan_qr_code_label_endTime" = "完工日期及時間";
+"scan_qr_code_label_verify_success_msg" = "這是一個有效的進入二維碼";
+"scan_qr_code_label_verify_fail_msg" = "這是一個無效的進入二維碼（超出批准的時間範圍）";
+"scan_qr_code_label_verify_wrong_format_msg" = "這是一個無效的進入二維碼（格式錯誤）";
 "scan_qr_code_label_gallery" = "相簿";
 "scan_qr_code_label_pdf" = "PDF";
 
 /* Quick Action - Incident Report List */
-"incident_report_list_label_tiltle" = "事故簡報";
-"incident_report_list_label_header" = "事故簡報列表";
+"incident_report_list_label_tiltle" = "簡易事故報告";
+"incident_report_list_label_header" = "簡易事故報告表";
 "incident_report_list_label_total_count" = "共 {R1} 項目";
 "incident_report_list_label_reference_no" = "參考編號";
 "incident_report_list_label_incident_date" = "事件日期";
-"incident_report_list_label_create_date" = "建立日期";
-"incident_report_list_label_swac_no" = "SWAC編號";
+"incident_report_list_label_create_date" = "生成日期";
+"incident_report_list_label_swac_no" = "工作許可證編號";
 "incident_report_list_label_location" = "地點";
 
 /* New Incident Report */
-"new_incident_report_label_tiltle" = "新增事故簡報";
-"new_incident_report_label_incident_report" = "事故簡報";
+"new_incident_report_label_tiltle" = "新增簡易事故報告";
+"new_incident_report_label_incident_report" = "簡易事故報告表";
 "new_incident_report_label_reference_no" = "參考編號";
 "new_incident_report_label_date" = "日期";
 "new_incident_report_label_time" = "時間";
 "new_incident_report_label_pick_date" = "選擇日期";
 "new_incident_report_label_pick_time" = "選擇時間";
-"new_incident_report_label_swac_no" = "SWAC編號";
+"new_incident_report_label_swac_no" = "工作許可證編號";
 "new_incident_report_label_swac_no_optional" = "(選填)";
 "new_incident_report_label_location" = "地點";
 "new_incident_report_label_incident" = "事故";
-"new_incident_report_label_cause_of_accident" = "事故原因";
+"new_incident_report_label_cause_of_accident" = "事故簡述";
 "new_incident_report_label_any_casualties" = "是否有人員傷亡";
 "new_incident_report_label_any_medias" = "是否有媒體關注";
 "new_incident_report_label_any_paramedics" = "是否有救護人員";
 "new_incident_report_label_any_fire_force" = "是否有消防人員";
 "new_incident_report_label_any_polices" = "是否有警方到場";
 "new_incident_report_label_dsd_contact_person" = "渠務署聯絡人";
-"new_incident_report_label_dsd_contractor" = "承辦商";
+"new_incident_report_label_dsd_contractor" = "承建商";
 "new_incident_report_label_dsd_contractor_ifAny" = "(如有)";
-"new_incident_report_alertTitle_msg" = "事故簡報已提交";
-"new_incident_report_alertMessage_msg" = "已記錄輸入的事故簡報";
+"new_incident_report_alertTitle_msg" = "簡易事故報告表已被遞交。";
+"new_incident_report_alertMessage_msg" = "已記錄輸入的簡易事故報告表。";
 "new_incident_report_label_copy_to_clipboard" = "複製到剪貼簿";
 "new_incident_report_label_copied" = "已複製到剪貼簿";
+"new_incident_report_alertTitle_leave" = "確認離開？";
+"new_incident_report_alertMessage_leave" = "此操作無法撤銷。";
+"new_incident_report_button_confirm_leave" = "確認離開";
 
 /* Today's SWAC Section */
-"today_swac_sectionTitle_main" = "今天有效的SWAC";
-"today_swac_button_start_work" = "開始工作";
-"today_swac_button_reject" = "拒絕";
-"start_work_alertTitle_msg" = "開始工作確認";
-"start_work_alertMessage_msg" = "此操作無法撤銷。";
-"start_work_alertTitle_reject_msg" = "拒絕工作確認";
+"today_swac_sectionTitle_main" = "今日有效的工作許可證";
+"today_swac_button_approve_entry" = "批准入場";
+"today_swac_button_endorse_registation" = "認可登記";
+"today_swac_button_reject" = "拒絕入場";
+"start_work_alertTitle_approve_msg" = "確認批准工地工作入場";
+"start_work_alertMessage_approve_msg" = "此操作無法撤銷。";
+"start_work_alertTitle_endorse_msg" = "確認認可登記";
+"start_work_alertMessage_endorse_msg" = "此操作無法撤銷。";
+"start_work_alertTitle_reject_msg" = "確認拒絕工地工作入場";
 "start_work_alertMessage_reject_msg" = "此操作無法撤銷。";
-"start_work_button_start" = "開始";
+"start_work_button_confirm_approve" = "確認批准";
+"start_work_button_confirm_endorse" = "確認認可登記";
 "start_work_button_confirm_reject" = "確認拒絕";
 
 /* swac status */
 "swac_status_label_all" = "全部";
 "swac_status_label_draft" = "草稿";
-"swac_status_label_submitted" = "已提交";
+"swac_status_label_submitted" = "已經遞交";
 "swac_status_label_vetting" = "安全審查";
-"swac_status_label_pending" = "待批准";
-"swac_status_label_rejected" = "已拒絕";
-"swac_status_label_approved" = "已批准";
-"swac_status_label_valid_swac" = "有效SWAC";
-"swac_status_label_registered_site_work" = "已註冊工地工程";
+"swac_status_label_pending" = "等待批准";
+"swac_status_label_rejected" = "已被拒絕";
+"swac_status_label_approved" = "已被批准";
+"swac_status_label_valid_swac" = "有效工作許可證";
+"swac_status_label_registered_site_work" = "工地工作入場";
+"swac_status_label_cswr_approve" = "批准入場";
+"swac_status_label_cswr_endorse" = "認可登記";
+"swac_status_label_cswr_reject" = "拒絕入場";
 
 /* CSWR Status */
+"cswr_status_label_pending_for_endorsement" = "等候認可登記";
 "cswr_status_label_pending_for_acknowledgement" = "等候知悉入埸";
 "cswr_status_label_pending_for_mps2_acknowledgement" = "等候 MPS2 知悉入埸";
+"cswr_status_label_pending_for_safety_inspection" = "等候安全檢查";
 "cswr_status_label_pending_for_approval" = "等候批准入埸";
 "cswr_status_label_confirmed_entry" = "確認入埸";
 "cswr_status_label_pending_for_mps1_checkout" = "等候 MPS1 確認離埸";
@@ -197,46 +211,48 @@
 
 /* SWAC Card */
 "swac_card_label_contract_title" = "合約名稱";
-"swac_card_label_swac_no" = "SWAC編號";
+"swac_card_label_swac_no" = "工作許可證編號";
 "swac_card_label_contract_no" = "合約編號";
-"swac_card_label_work_order_no" = "工作單編號";
+"swac_card_label_work_order_no" = "工作訂單編號";
 "swac_card_label_working_team_member" = "施工隊成員";
-"swac_card_label_post" = "職位";
+"swac_card_label_post" = "職務";
 "swac_card_label_reference_number" = "參考編號";
-"swac_card_label_contractor_name" = "承辦商名稱";
-"swac_card_label_contractor_phone" = "承辦商電話";
+"swac_card_label_contractor_name" = "公司名稱";
+"swac_card_label_contractor_phone" = "公司電話號碼";
 "swac_card_label_location" = "地點";
-"swac_card_label_regional_control_centre" = "分區控制中心";
+"swac_card_label_regional_control_centre" = "區域控制中心";
 "swac_card_label_project_in_charge" = "項目負責人";
-"swac_card_label_site_in_charge" = "現場負責人";
+"swac_card_label_site_in_charge" = "工地負責人";
 "swac_card_label_works_detail" = "工程詳情";
-"swac_card_label_cswr_status" = "CSWR 狀態(已註冊工地工程)";
+"swac_card_label_cswr_status" = "工地工作狀態";
+"swac_card_label_cswr_ticket_no" = "登記籌號";
+"swac_card_label_target_finish_time" = "預計離場時間";
 
 /* SWAC Main  */
-"swac_main_title_main" = "工地施工授權證書";
+"swac_main_title_main" = "工作許可證";
 "swac_main_label_total_count" = "共 {R1} 項目";
-"swac_main_placeholder_swac" = "尋找SWAC編號";
-"swac_main_label_empty_prompt_title" = "請選擇 SWAC 篩選條件/搜尋 SWAC 編號。";
+"swac_main_placeholder_swac" = "搜尋工作許可證編號";
+"swac_main_label_empty_prompt_title" = "請選擇工作許可證篩選條件/ 搜尋工作許可證編號。";
 
 /* SWAC Detail */
 "swac_detail_tab_button_profile" = "詳細資料";
-"swac_detail_tab_button_attendance" = "簽到";
+"swac_detail_tab_button_attendance" = "出勤";
 "swac_detail_label_signed_in" = "已簽到";
 "swac_detail_label_signed_out" = "已簽退";
-"swac_detail_label_startTime" = "開始日期";
-"swac_detail_label_endTime" = "結束日期";
+"swac_detail_label_startTime" = "開工日期及時間";
+"swac_detail_label_endTime" = "完工日期及時間";
 "swac_detail_button_approve" = "批准";
-"swac_detail_button_endorse" = "確認";
+"swac_detail_button_endorse" = "簽署";
 "swac_detail_button_revert" = "退回";
-"swac_detail_button_reject" = "駁回";
+"swac_detail_button_reject" = "拒絕";
 "swac_detail_label_remark" = "備註";
 "swac_detail_placeholder_type_here" = "請在此輸入…";
 "swac_detail_button_confirm_pass" = "確認通過";
 "swac_detail_button_confrim_fail" = "確認未通過";
-"swac_detail_alertTitle_vetting_passed" = "SWAC 安全審查通過";
-"swac_detail_alertMessage_vetting_passed_hint" = "您選擇的 SWAC 安全審查已通過。 ";
-"swac_detail_alertTitlevetting_failed_hint" = "SWAC 安全審查未通過";
-"swac_detail_alertMessage_vetting_failed_hint" = "您選擇的 SWAC 安全審查未通過。 ";
+"swac_detail_alertTitle_vetting_passed" = "工作許可證安全審查通過。";
+"swac_detail_alertMessage_vetting_passed_hint" = "您選擇的工作許可證安全審查已通過。";
+"swac_detail_alertTitlevetting_failed_hint" = "工作許可證安全審查未通過。";
+"swac_detail_alertMessage_vetting_failed_hint" = "您選擇的工作許可證安全審查未通過。";
 
 /* SWAC Detail Worker Info */
 "swac_detail_worker_info_label_staff_detail" = "員工詳情";
@@ -249,11 +265,11 @@
 /* Attendance Detail */
 "attendance_detail_label_total_count" = "共 {R1} 項目";
 "attendance_detail_label_no_record" = "沒有出勤記錄";
-"attendance_detail_label_today" = "今天";
+"attendance_detail_label_today" = "今日";
 
 /*  Staff Card  */
 "staff_card_label_name" = "姓名";
-"staff_card_label_role" = "職位";
+"staff_card_label_role" = "角色";
 "staff_card_label_mobile_phone_number" = "手機號碼";
 "staff_card_label_sign_in" = "簽到";
 "staff_card_label_sign_out" = "簽退";
@@ -263,42 +279,44 @@
 "staff_card_status_no_record" = "沒有紀錄";
 
 /* Site Diary Status */
-"site_diary_status_label_pending_dsd_endorsement" = "待DSD工作人員批准";
-"site_diary_status_label_pending_contractor_endorsement" = "待承辦商批准";
-"site_diary_status_label_pending_dsd_approval" = "待DSD工作人員批准";
-"site_diary_status_label_rejected" = "已拒絕";
-"site_diary_status_label_archived" = "已批准";
+"site_diary_status_label_pending_dsd_endorsement" = "等待渠務署簽署";
+"site_diary_status_label_pending_contractor_endorsement" = "等待承建商簽署";
+"site_diary_status_label_pending_dsd_approval" = "等待渠務署批准";
+"site_diary_status_label_rejected" = "已被拒絕";
+"site_diary_status_label_archived" = "已被批准";
 "site_diary_filter_status_label_all" = "全部";
-"site_diary_filter_status_label_pending_dsd_endorsement" = "待DSD批准";
-"site_diary_filter_status_label_contractor_endorsement" = "待承辦商批准";
-"site_diary_filter_status_label_dsd_approval" = "待CTO批准";
-"site_diary_filter_status_label_rejected" = "已拒絕";
-"site_diary_filter_status_label_archived" = "已批准";
+"site_diary_filter_status_label_pending_dsd_endorsement" = "等待渠務署簽署";
+"site_diary_filter_status_label_contractor_endorsement" = "等待承建商簽署";
+"site_diary_filter_status_label_dsd_approval" = "等待渠務署批准";
+"site_diary_filter_status_label_rejected" = "已被拒絕";
+"site_diary_filter_status_label_archived" = "已被批准";
 
 /* Site Diary Main */
-"site_diary_main_label_select_swac" = "選擇 SWAC";
+"site_diary_main_label_select_swac" = "選擇工作許可證";
 "site_diary_main_label_total_count" = "共 {R1} 項目";
 "site_diary_main_label_filter_show" = "顯示 {R1} 至 {R2} 結果";
-"site_diary_main_placeholder_swac" = "尋找SWAC編號";
+"site_diary_main_placeholder_swac" = "搜尋工作許可證編號";
 "site_diary_main_label_contract_title" = "合約名稱";
-"site_diary_main_label_contractor_name" = "承辦商名稱";
-"site_diary_main_label_swac_no" = "SWAC編號";
+"site_diary_main_label_contractor_name" = "公司名稱";
+"site_diary_main_label_swac_no" = "工作許可證編號";
 "site_diary_main_label_contract_no" = "合約編號";
-"site_diary_main_label_work_order_no" = "工作單編號";
+"site_diary_main_label_work_order_no" = "工作訂單編號";
 
 /* Site Diary List */
-"site_diary_list_label_name_of_contractor" = "承辦商名稱";
-"site_diary_list_label_work_order_no" = "工作單編號";
-"site_diary_list_label_name_of_plant" = "地點";
-"site_diary_list_placeholder_search_site_diary" = "尋找工地日誌";
+"site_diary_list_label_name_of_contractor" = "公司名稱";
+"site_diary_list_label_work_order_no" = "工作訂單編號";
+"site_diary_list_label_name_of_plant" = "區域控制中心";
+"site_diary_list_placeholder_search_site_diary" = "搜尋工地日誌";
 
 /* Site Diary Card */
 "site_diary_card_label_brief_description" = "簡要說明";
-"site_diary_card_label_contractor_rep" = "承辦商代表";
-"site_diary_card_label_dsd_rep" = "DSD 代表";
+"site_diary_card_label_contractor_rep" = "承建商";
+"site_diary_card_label_dsd_rep" = "渠務署監工";
 "site_diary_card_label_status_of_weather" = "天氣狀況";
-"site_diary_card_label_contractor_signed" = "承辦商\n簽署";
-"site_diary_card_label_staff_signed" = "DSD人員\n簽署";
+"site_diary_card_label_am" = "上午";
+"site_diary_card_label_pm" = "下午";
+"site_diary_card_label_contractor_signed" = "承建商\n簽署";
+"site_diary_card_label_staff_signed" = "渠務署員工\n簽署";
 "site_diary_card_label_er_signed" = "ER\n簽字";
 
 /* Site Diary Detail */
@@ -306,109 +324,115 @@
 "site_diary_detail_tab_button_diary" = "紀錄";
 "site_diary_detail_tab_button_comment" = "評論";
 "site_diary_detail_label_date" = "日期";
-"site_diary_detail_label_contractor_rep" = "承辦商代表";
-"site_diary_detail_label_dsd_rep" = "DSD 代表";
-"site_diary_detail_label_status" = "狀況";
+"site_diary_detail_label_contractor_rep" = "承建商";
+"site_diary_detail_label_dsd_rep" = "渠務署監工";
+"site_diary_detail_label_status" = "狀態";
 "site_diary_detail_label_weather_status" = "天氣狀況";
+"site_diary_detail_label_at_least_either_one" = "（至少選一項）";
+"site_diary_detail_label_am" = "上午";
+"site_diary_detail_label_pm" = "下午";
 "site_diary_detail_label_weather_fine" = "晴朗";
 "site_diary_detail_label_weather_cloudy" = "多雲";
 "site_diary_detail_label_weather_rainy" = "有雨";
-"site_diary_detail_label_brief_description" = "工作活動簡述：設備、材料及勞動力使用情形";
+"site_diary_detail_label_weather_thunder" = "雷暴";
+"site_diary_detail_label_no_of_labour" = "工人數量";
+"site_diary_detail_placeholder_no_of_labour" = "例子: 255";
+"site_diary_detail_label_brief_description" = "簡述工作情況、設備、物料及工人的用量";
 "site_diary_detail_label_max_words" = "（最多 100 字）";
 "site_diary_detail_placeholder_type_here" = "請在此輸入…";
 "site_diary_detail_label_image" = "圖片";
 "site_diary_detail_label_remark" = "備註";
 "site_diary_detail_label_current_empty" = "目前空白";
-"site_diary_detail_label_instructions_representative" = "致承辦商代表的指示 / 備註";
-"site_diary_detail_label_response_representative" = "承辦商代表的回覆 / 備註";
-"site_diary_detail_button_send_back_and_instruct" = "退回並指示承辦商";
-"site_diary_detail_label_instructions_to_contractor" = "致承辦商的指示";
-"site_diary_detail_label_inform_to_approve" = "通知審核者：";
-"site_diary_detail_placeholder_inform_to_approve" = "員工姓名";
+"site_diary_detail_label_instructions_representative" = "給承建商代表工作指引";
+"site_diary_detail_label_response_representative" = "承建商代表回應";
+"site_diary_detail_button_send_back_and_instruct" = "退回並指示承建商";
+"site_diary_detail_label_instructions_to_contractor" = "致承建商的指示";
+"site_diary_detail_label_inform_to_approve" = "批核員工：";
+"site_diary_detail_placeholder_inform_to_approve" = "批核員工姓名";
 "site_diary_detail_button_send_back" = "退回";
-"site_diary_detail_alertTitle_send_back" = "工地日誌已退回";
-"site_diary_detail_alertMessage_send_back" = "所選日誌已退回。";
-"site_diary_detail_alertTitle_signed" = "工地日誌已簽署";
-"site_diary_detail_alertMessage_signed" = "所選日誌已簽署。";
+"site_diary_detail_alertTitle_send_back" = "工地日誌已被退回。";
+"site_diary_detail_alertMessage_send_back" = "所選工地日誌已被退回。";
+"site_diary_detail_alertTitle_signed" = "工地日誌已被簽署。";
+"site_diary_detail_alertMessage_signed" = "所選工地日誌已被簽署。";
 "site_diary_detail_label_add_description" = "添加描述";
 "site_diary_detail_new_diary_entry_title" = "新增工地日誌";
 "site_diary_detail_label_caption" = "標題...";
-"site_diary_detail_label_add_new" = "新增內容";
+"site_diary_detail_label_add_new" = "新增";
 "site_diary_detail_label_pick_date" = "選擇日期";
 "site_diary_detail_label_remark_with_max" = "備註（最多 300 字）";
 "site_diary_detail_button_take_photo" = "拍照";
 "site_diary_detail_button_select_from_gallery" = "從相簿中選擇";
-"site_diary_detail_button_sign_and_submit" = "簽名並提交";
-"site_diary_detail_alertTitle_confirm_submit" = "您確定要提交此工地日誌嗎？";
+"site_diary_detail_button_sign_and_submit" = "遞交";
+"site_diary_detail_alertTitle_confirm_submit" = "確認遞交？";
 "site_diary_detail_alertMessage_confirm_submit" = "此操作無法撤銷。";
-"site_diary_detail_button_confirm_submit" = "確認提交";
-"site_diary_detail_alertTitle_submitted" = "工地日誌已提交";
-"site_diary_detail_alertMessage_submitted" = "所選工地日誌已提交。";
-"site_diary_detail_alertTitle_file_size" = "文件過大";
+"site_diary_detail_button_confirm_submit" = "確認遞交";
+"site_diary_detail_alertTitle_submitted" = "工地日誌已被遞交。";
+"site_diary_detail_alertMessage_submitted" = "所選工地日誌已被遞交。";
+"site_diary_detail_alertTitle_file_size" = "文件大小不能超過";
 "site_diary_detail_alertMessage_file_size" = "所選檔案（{R1} MB）超過了 5 MB 的限制。請選擇較小的檔案或壓縮後再上傳。";
-"site_diary_detail_alertTitle_leave" = "您確定要在未提交的情況下離開嗎？";
+"site_diary_detail_alertTitle_leave" = "確認離開？";
 "site_diary_detail_alertMessage_leave" = "此操作無法撤銷。";
 "site_diary_detail_button_confirm_leave" = "確認離開";
 
 /* Safety Inspection Status */
 "safety_inspection_status_label_all" = "全部";
 "safety_inspection_status_label_draft" = "草稿";
-"safety_inspection_status_label_pending_close" = "待關閉";
-"safety_inspection_status_label_closed" = "已關閉";
+"safety_inspection_status_label_pending_close" = "等待完成";
+"safety_inspection_status_label_closed" = "已經完成";
 
 /* Safety Inspection Main */
-"safety_inspection_main_label_select_swac" = "選擇 SWAC";
+"safety_inspection_main_label_select_swac" = "選擇工作許可證";
 "safety_inspection_main_label_total_count" = "共 {R1} 項目";
-"safety_inspection_main_placeholder_swac" = "尋找SWAC編號";
+"safety_inspection_main_placeholder_swac" = "搜尋工作許可證編號";
 "safety_inspection_main_label_contract_title" = "合約名稱";
-"safety_inspection_main_label_contractor_name" = "承辦商名稱";
-"safety_inspection_main_label_swac_no" = "SWAC編號";
-"safety_inspection_main_label_work_order_no" = "工作單編號";
+"safety_inspection_main_label_contractor_name" = "公司名稱";
+"safety_inspection_main_label_swac_no" = "工作許可證編號";
+"safety_inspection_main_label_work_order_no" = "工作訂單編號";
 "safety_inspection_main_label_last_inspection_date" = "上次檢查日期：";
 
 /* Safety Inspection Card */
 "safety_inspection_list_label_report_no" = "報告編號";
-"safety_inspection_list_label_create Date" = "建立日期";
+"safety_inspection_list_label_create Date" = "生成時間";
 "safety_inspection_list_label_last_inspection_date" = "上次檢查日期";
-"safety_inspection_list_label_submitted_by" = "提交人";
+"safety_inspection_list_label_submitted_by" = "遞交員工";
 "safety_inspection_list_button_view" = "查看";
 "safety_inspection_list_button_edit" = "修改";
 "safety_inspection_list_placeholder_search_report" = "搜尋報告編號";
 
 /* Safety Inspection Detail */
 "safety_inspection_detail_title" = "安全檢查";
-"safety_inspection_detail_new_title" = "新安全檢查";
-"safety_inspection_detail_completed_title" = "安全檢查(已完成)";
-"safety_inspection_detail_complete_title" = "完成安全檢查";
+"safety_inspection_detail_new_title" = "新增安全檢查報告";
+"safety_inspection_detail_completed_title" = "安全報告(已完成)";
+"safety_inspection_detail_complete_title" = "完成安全檢查報告";
 "safety_inspection_detail_label_contract_title" = "合約名稱";
 "safety_inspection_detail_label_contract_no" = "合約編號";
-"safety_inspection_detail_label_swac_no" = "SWAC編號";
-"safety_inspection_detail_label_work_order_no" = "工作單編號";
+"safety_inspection_detail_label_swac_no" = "工作許可證編號";
+"safety_inspection_detail_label_work_order_no" = "工作訂單編號";
 "safety_inspection_detail_label_date_of_checking" = "檢查日期";
 "safety_inspection_detail_label_check_by" = "檢查人：";
-"safety_inspection_detail_label_inform_to_approve" = "通知批准：";
+"safety_inspection_detail_label_inform_to_approve" = "通知批核員工：";
 "safety_inspection_detail_label_work_details" = "工作詳情";
 "safety_inspection_detail_label_type_of_confined_space" = "密閉空間類型";
-"safety_inspection_detail_placeholder_inform_to_approve" = "員工名稱";
-"safety_inspection_detail_label_permit_to_work" = "工作許可";
-"safety_inspection_detail_label_fresh_ra" = "新註冊助理";
-"safety_inspection_detail_label_permit_to_work_complete" = "工作許可(完成)";
-"safety_inspection_detail_button_add_new" = "新增內容";
-"safety_inspection_detail_alertTitle_leave" = "您確定要在未提交的情況下離開嗎？";
+"safety_inspection_detail_placeholder_inform_to_approve" = "職員姓名";
+"safety_inspection_detail_label_permit_to_work" = "工作許可証";
+"safety_inspection_detail_label_fresh_ra" = "動態風險評估";
+"safety_inspection_detail_label_permit_to_work_complete" = "工作許可証(完成)";
+"safety_inspection_detail_button_add_new" = "新增";
+"safety_inspection_detail_alertTitle_leave" = "確認離開？";
 "safety_inspection_detail_alertMessage_leave" = "此操作無法撤銷。";
 "safety_inspection_detail_button_confirm_leave" = "確認離開";
 
 /* Safety Inspection Checklist  */
-"safety_inspection_checklist_title" = "安全檢查清單";
-"safety_inspection_checklist_new_title" = "新的安全檢查清單";
+"safety_inspection_checklist_title" = "安全檢查";
+"safety_inspection_checklist_new_title" = "新增安全檢查報告";
 "safety_inspection_checklist_button_save_as_draft" = "儲存為草稿";
-"safety_inspection_checklist_alertTitle_confirm" = "您確定要提交此清單嗎？";
+"safety_inspection_checklist_alertTitle_confirm" = "確認遞交 ？";
 "safety_inspection_checklist_alertMessage_confirm" = "此操作無法撤銷。";
-"safety_inspection_checklist_button_confirm_submit" = "確認提交";
-"safety_inspection_checklist_alertTitle_submitted" = "清單已提交";
-"safety_inspection_checklist_alertMessage_submitted" = "您的安全檢查已記錄。";
-"safety_inspection_checklist_alertTitle_submission_failed" = "提交失敗";
-"safety_inspection_checklist_button_back_to_checklist" = "返回清單";
+"safety_inspection_checklist_button_confirm_submit" = "確認遞交";
+"safety_inspection_checklist_alertTitle_submitted" = "安全檢查報告已被遞交";
+"safety_inspection_checklist_alertMessage_submitted" = "您的安全檢查報告已被記錄。";
+"safety_inspection_checklist_alertTitle_submission_failed" = "遞交失敗";
+"safety_inspection_checklist_button_back_to_checklist" = "返回報告";
 "safety_inspection_checklist_label_option_yes" = "是";
 "safety_inspection_checklist_label_option_no" = "否";
 "safety_inspection_checklist_label_option_na" = "不適用";
@@ -431,9 +455,9 @@
 "setting_label_nameEng" = "英文姓名";
 "setting_label_nameChi" = "姓名";
 "setting_label_division" = "部門";
-"setting_label_post" = "職位";
+"setting_label_post" = "職務";
 "setting_label_office_phone_number" = "辦公室電話";
-"setting_label_mobile_phone_number" = "手機號碼";
+"setting_label_mobile_phone_number" = "手提號碼";
 "setting_label_language" = "語言";
 "setting_button_language_eng" = "英文";
 "setting_button_language_chinese" = "中文";
@@ -445,84 +469,117 @@
 "setting_button_cancel" = "取消";
 
 /* Server Error */
-
-/* --- General / Auth --- */
-"invalid caller" = "無效的呼叫者";
-"invalid password" = "密碼無效";
-"user not found" = "找不到用戶資料";
-"staff not found" = "找不到職員資料";
-"contractor not found" = "找不到承辦商資料";
-"working team member not found" = "找不到工作團隊成員";
-"error in sign in" = "簽到時發生錯誤";
-"error in sign out" = "簽退時發生錯誤";
-"error login staff" = "職員登入錯誤";
-"error login contractor" = "承辦商登入錯誤";
-"error login working team member" = "工作小組成員登入錯誤";
-
-/* --- Attendance & Access Code --- */
-"invalid access code" = "無效的存取代碼 (Access Code)";
-"access code not found" = "找不到存取代碼";
-"error getting the QR code" = "無法取得二維碼";
-"error inspecting the access code" = "檢查存取代碼時發生錯誤";
-"error getting the attendance list" = "無法取得考勤列表";
-"error checking the status of today sign-out" = "檢查今日簽退狀態時發生錯誤";
-"error checking the outstanding sign-out for today" = "檢查今日未完成簽退記錄時發生錯誤";
-"Error getting contractor attendance records" = "無法取得承辦商考勤記錄";
-"invalid member ID" = "無效的成員 ID";
-"sign in already, cannot sign in again" = "已簽到，不能重覆簽到";
-"cannot sign out without sign in record" = "未有簽到記錄，不能簽退";
-"sign out already, cannot sign out again" = "已簽退，不能重覆簽退";
-
-/* --- SWAC --- */
-"SWAC is not found" = "找不到 SWAC 記錄";
+"invalid page size" = "無效的頁面大小";
+"Error getting contractor attendance records" = "無法取得承辦商簽到記錄";
+"invalid page number" = "無效的頁碼";
 "invalid swac" = "SWAC 無效";
+"staff not found" = "找不到職員資料";
+"unauthorised to access this SWAC" = "未經授權存取此SWAC";
+"invalid caller" = "呼叫器無效";
+"error getting the attendance list" = "無法取得簽到列表";
+"working team member not found" = "未找到工作團隊成員";
+"invalid working team member" = "無效的工作團隊成員";
+"access code not found" = "找不到存取碼";
 "swac expired" = "SWAC 已過期";
-"SWAC is not yet approved" = "SWAC 尚未獲批准";
-"invalid contractor" = "無效的承辦商";
-"error getting the list of SWAC" = "無法取得 SWAC 列表";
-"error getting the profile of SWAC" = "無法取得 SWAC 個人資料";
-"error getting the profile of working team member" = "無法取得工作小組成員資料";
-"error searching SWAC" = "搜尋 SWAC 時發生錯誤";
-"error getting approver list" = "無法取得審批人列表";
-
-/* --- Reports & Site Diary --- */
-"error submitting the incident report" = "提交事故報告時發生錯誤";
-"error processing incident report" = "處理事故報告時發生錯誤";
-"error getting the list of incident report" = "取得事件報告清單時發生錯誤";
-"incident report not found" = "找不到事件報告";
-"error submitting the site diary" = "提交地盤日誌時發生錯誤";
-"error processing the site diary" = "處理地盤日誌時發生錯誤";
-"error getting the list of site diary" = "無法取得地盤日誌列表";
-"error getting the site diary" = "無法取得地盤日誌";
-"error getting site diary" = "無法取得地盤日誌";
-"invalid site diary" = "無效的地盤日誌";
-"error submitting the safety inspection report" = "提交安全檢查報告時發生錯誤";
-"error processing the site safety inspection report" = "處理安全檢查報告時發生錯誤";
-"error getting the list of safety inspection report" = "無法取得安全檢查報告列表";
-"error getting the safety inspection report" = "無法取得安全檢查報告";
-"error getting safety inspection report" = "無法取得安全檢查報告";
-"error getting the safety inspection report format" = "無法取得安全檢查報告格式";
-"error creating the safety inspection report format" = "建立安全檢查報告格式時發生錯誤";
-"invalid safety inspection report" = "無效的安全檢查報告";
-"staff is not the safety officer" = "該職員並非安全主任";
-
-/* --- Notifications & Mobile Token --- */
-"error registering mobile token" = "註冊流動裝置代碼 (Mobile Token) 時發生錯誤";
-"error registering the mobile token" = "註冊流動裝置代碼時發生錯誤";
-"error deregistering mobile token" = "取消註冊流動裝置代碼時發生錯誤";
-"error deregistering the mobile token" = "取消註冊流動裝置代碼時發生錯誤";
-"error getting mobile notifications" = "無法取得流動通知";
-"error getting mobile notification" = "無法取得流動通知";
-"error getting the unread count of mobile notifications" = "無法取得未讀通知數量";
-"error getting unread count of mobile notification" = "無法取得未讀通知數量";
-"error marking read the mobile notification" = "標記已讀通知時發生錯誤";
-"receiver not found" = "找不到接收者";
-"invalid notification" = "無效的通知";
-
-/* --- Documents & Pagination --- */
-"error getting the list of document contents" = "無法取得文件內容列表";
-"error getting the document contents" = "無法取得文件內容";
-"document not found" = "找不到文件";
+"error inspecting the access code" = "檢查存取碼時發生錯誤";
+"invalid access code" = "存取碼無效";
+"error checking the outstanding sign-out for today" = "檢查今天未完成簽退記錄時發生錯誤";
+"unauthorised to acknowledge site work entry" = "未經授權不得進入施工現場";
+"unauthorised to check out site work" = "未經授權查看工地工作";
+"site work registration not found" = "未找到工地工作登記信息";
+"missing safety inspection report" = "缺少安全檢查報告";
+"invalid site work state" = "無效的網站工作狀態";
+"unauthorised to approve site work entry" = "未經授權不得批准進入工地施工";
+"error approving the site work entry" = "批准工地工作條目時出錯";
+"site work registration {id} not found" = "未找到工地工作登記 {id}";
+"unauthorised to reject site work entry" = "未經授權拒絕進入施工現場";
+"error rejecting the site work entry" = "拒絕工地工作條目時出錯";
+"unauthorised to endorse site work registration" = "未經授權不得認可工地工作登記";
+"error endorsing the site work registration" = "錯誤地認可了網站工作登記";
+"unauthorised to start recess for site work" = "未經授權擅自開始工地施工";
+"unauthorised to end recess for site work" = "未經授權結束工地作業休息時間";
+"swac not found" = "未找到拭子";
+"site work not found" = "未找到現場作業";
+"invalid staff" = "無效人員";
+"error getting site work profile for site entry" = "取得網站條目的網站工作概況時發生錯誤";
+"error getting site work list for site entry" = "取得網站條目的網站工作清單時發生錯誤";
 "unauthorised to access document" = "未獲授權存取此文件";
-"invalid page size" = "無效的頁面大小 (Page Size)";
-"invalid page number" = "無效的頁碼 (Page Number)";
+"document not found" = "找不到文件";
+"error getting the document entities" = "取得文件實體時發生錯誤";
+"error getting the document entity" = "取得文件實體時發生錯誤";
+"error getting the data content of document" = "取得文件資料內容時出錯";
+"Error checking the id of contractor" = "檢查承包商 ID 時發生錯誤";
+"Error getting profile of all project in charge staff by specified regional control centre" = "透過指定區域控制中心取得所有專案負責人資訊時出錯";
+"Error getting the profile of the staff" = "取得員工資料時出錯";
+"Error getting the company information" = "取得公司資訊時出錯";
+"RCC not found" = "未找到 RCC";
+"Error getting RCC information" = "取得 RCC 資訊時出錯";
+"Error finding the RCC" = "尋找 RCC 時出錯";
+"member not found" = "未找到成員";
+"error getting profile of working team member" = "取得工作團隊成員個人資料時出錯";
+"error getting the approver list" = "取得審核者清單時出錯";
+"contractor not found" = "找不到承辦商資料";
+"error registering the mobile token" = "註冊手機令牌時發生錯誤";
+"error deregistering the mobile token" = "取消註冊手機令牌時發生錯誤";
+"error getting mobile notification" = "取得手機通知時發生錯誤";
+"error getting unread count of mobile notification" = "無法取得未讀通知數量";
+"invalid notification" = "通知無效";
+"error marking read the mobile notification" = "標記已讀通知時發生錯誤";
+"invalid language" = "無效語言";
+"worker not found" = "未找到工作人員";
+"invalid worker" = "無效工人";
+"error setting the language preference" = "設定語言首選項時出錯";
+"error processing incident report" = "處理事故報告時發生錯誤";
+"error getting the list of incident report" = "無法取得事故報告列表";
+"incident report not found" = "無法取得事故報告";
+"error getting the incident report" = "取得事故報告時出錯";
+"SWAC is not found" = "找不到 SWAC";
+"staff is not found" = "找不到工作人員";
+"staff is not the safety officer" = "該職員並非安全主任";
+"error opening a safety inspection report" = "開啟安全檢查報告時出錯";
+"report not found" = "未找到報告";
+"unauthorised to close the report" = "未經授權關閉報告";
+"invalid report content" = "無效的報告內容";
+"error closing a safety inspection report" = "關閉安全檢查報告時出錯";
+"SWAC is not yet approved" = "SWAC 尚未獲批准";
+"error getting the list of safety inspection report" = "無法取得安全檢查報告列表";
+"invalid safety inspection report" = "安全檢查報告無效";
+"error getting safety inspection report" = "無法取得安全檢查報告";
+"error creating the safety inspection report format" = "建立安全檢查報告格式時發生錯誤";
+"error getting the document contents" = "無法取得文件內容";
+"labour return not found" = "未找到勞動回報";
+"Error notifying DSD staff about the labour return" = "通知DSD工作人員有關勞動返工的資訊時出錯";
+"Error searching diaries" = "搜尋日記時出錯";
+"SWAC not found" = "未找到SWAC";
+"error submitting the site diary" = "提交工地日誌時發生錯誤";
+"error getting the list of site diary" = "無法取得工地日誌列表";
+"site diary not found" = "工地日誌未找到";
+"error getting site diary" = "無法取得工地日誌";
+"event log of site diary not found" = "未找到工地日誌事件日誌";
+"error getting event log of site diary" = "取得工地日誌事件日誌時出錯";
+"error getting attachment profiles of site diary" = "取得工地日誌附件設定檔時發生錯誤";
+"invalid site diary state" = "無效的網站日記狀態";
+"unauthorised to endorse the site diary" = "未經授權不得為該網站的日記背書";
+"approver of site diary not found" = "未找到工地日誌的審核人";
+"error endorsing the site diary" = "工地日誌認可錯誤";
+"unauthorised to reject the site diary" = "未經授權拒絕工地日誌";
+"site in charge staff of site diary not found" = "未找到現場負責人或現場日誌。";
+"error rejecting the site diary" = "拒絕工地日誌時出錯";
+"New SWAC not found" = "未找到新的 SWAC";
+"Error notifying DSD staff about the SWAC application submission" = "通知DSD工作人員SWAC申請提交資料時發生錯誤";
+"Error getting the list of SWAC" = "取得SWAC清單時出錯";
+"invalid swac state" = "無效的 swac 狀態";
+"Error getting the profile of SWAC" = "取得SWAC設定檔時出錯";
+"invalid working team member ID" = "無效的工作團隊成員 ID";
+"error getting the profile of working team member" = "無法取得施工隊成員資料";
+"invalid SWAC state request" = "無效的SWAC狀態請求";
+"error searching SWAC" = "無法搜尋 SWAC";
+"error getting SWAC for safety vetting" = "取得SWAC進行安全審查時出錯";
+"error getting SWAC list for safety vetting" = "取得用於安全審查的SWAC名單時出錯";
+"invalid safety officer" = "無效安全員";
+"error passing the safety vetting" = "安全審查失敗";
+"error failing the safety vetting" = "安全審查失敗導致的錯誤";
+"invalid password" = "密碼無效";
+"user not found" = "找不到用戶";
+"today safety inspection report is not yet closed" = "今天的安全檢查報告尚未結束。";
+"safety inspection report is closed already" = "安全檢查報告已結束";

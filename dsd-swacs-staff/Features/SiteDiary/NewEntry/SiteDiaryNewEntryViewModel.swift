@@ -15,14 +15,17 @@ class SiteDiaryNewEntryViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var isSaving = false
     @Published var errorMessage: String?
-    
+
     @Published var selectedApprove: DropdownItem? = nil
     @Published var approverList: [DropdownItem] = []
-    
+
     @Published var date = Date()
-    @Published var selectedWeather: WeatherSelectorStatus? = nil
+    @Published var selectedWeatherAM: WeatherSelectorStatus? = nil
+    @Published var selectedWeatherPM: WeatherSelectorStatus? = nil
+    @Published var labour: Int? = nil
     @Published var descriptionText: String = ""
     @Published var instructionText: String = ""
+    @Published var responseText: String = ""
     @Published var images: [ImageAsset] = []
     
     let swacNumber: String
@@ -35,19 +38,21 @@ class SiteDiaryNewEntryViewModel: ObservableObject {
     var hasUnsavedChanges: Bool {
         let hasDesc = !descriptionText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         let hasInstruction = !instructionText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        let hasResponse = !responseText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         let hasImages = !images.isEmpty
-        let hasWeather = selectedWeather != nil
+        let hasWeatherAM = selectedWeatherAM != nil
+        let hasWeatherPM = selectedWeatherPM != nil
         let hasSelectedApprove = selectedApprove != nil
-        
-        return hasDesc || hasInstruction || hasImages || hasWeather || hasSelectedApprove
+
+        return hasDesc || hasInstruction || hasImages || hasWeatherAM || hasWeatherPM || hasSelectedApprove
     }
     
     var isFormValid: Bool {
         let hasDescription = !descriptionText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-        let hasWeather = selectedWeather != nil
         let hasApprover = selectedApprove != nil
-        
-        return hasDescription && hasWeather && hasApprover
+        let hasWeather = selectedWeatherAM != nil || selectedWeatherPM != nil
+        let hasLabour = labour != nil
+        return hasDescription && hasApprover && hasWeather && hasLabour
     }
     
     var canSubmit: Bool {
@@ -92,32 +97,34 @@ class SiteDiaryNewEntryViewModel: ObservableObject {
     }
     
     func submitSiteDiary() async throws -> Int {
-        guard let weather = selectedWeather else {
-            throw NSError(domain: "SiteDiary", code: -1, userInfo: [NSLocalizedDescriptionKey: "Weather is required"])
-        }
-        
         guard let approver = selectedApprove else {
             throw NSError(domain: "SiteDiary", code: -2, userInfo: [NSLocalizedDescriptionKey: "Approver is required"])
         }
-        
+
         isSaving = true
         defer { isSaving = false }
         
         let dateString = formatDate(date)
         let (attachments, attachmentFiles) = prepareAttachments(images)
-        
+
+        let weatherAMValue = selectedWeatherAM?.apiValue
+        let weatherPMValue = selectedWeatherPM?.apiValue
+        let labourValue = labour
+
         let response = try await APIService.submitSiteDiary(
             instruction: instructionText,
-            response: "",
+            response: responseText,
             swac: swacNumber,
-            weather: weather.apiValue,
+            weatherAM: weatherAMValue,
+            weatherPM: weatherPMValue,
+            labour: labourValue,
             workActivity: descriptionText,
             date: dateString,
             approver: approver.id,
             attachments: attachments,
             attachmentFiles: attachmentFiles
         )
-        
+
         Logger.debug(tag: "SiteDiary", "✅ Site Diary created with ID: \(response.id)")
         return response.id
     }

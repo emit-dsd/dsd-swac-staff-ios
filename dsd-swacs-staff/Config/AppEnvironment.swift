@@ -9,12 +9,10 @@ import Foundation
 
 public struct AppEnvironment {
     
-//    #if DEBUG
-     static let baseURL = "https://swac.dsd.gov.hk/mobile"
-//    #elseif UAT
-//     static let baseURL = "https://uat.api.example.com"
-//    #else
-//     static let baseURL = "https://api.example.com"
-//    #endif
+    #if PROD
+    static let baseURL = "https://swac.dsd.gov.hk/mobile"
+    #else
+     static let baseURL = "https://swac.dsd.gov.hk/mobile-t"
+    #endif
     
 }
