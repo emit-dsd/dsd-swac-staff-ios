@@ -32,7 +32,6 @@ struct SafetyInspectionNewEntryView: View {
     
     @State private var editingAsset: ImageAsset? = nil
     
-    private let maxImageSizeMB: Double = 5.0
     private let imageSize = CGSize(width: 160, height: 120)
     
     init(swacNumber: String, draft: SafetyInspectionDraft? = nil, inspectionId: Int? = nil, part: SafetyInspectionPart = .partA) {
@@ -41,25 +40,15 @@ struct SafetyInspectionNewEntryView: View {
     }
     
     // MARK: - Helper Methods
-    private func imageSizeInMB(_ image: UIImage) -> Double {
-        guard let data = image.jpegData(compressionQuality: 1.0) else { return 0 }
-        return Double(data.count) / (1024.0 * 1024.0)
+    private func logPickedImage(_ image: UIImage, category: String) {
+        let size = image.jpegData(compressionQuality: 1.0)?.count ?? 0
+        print("🖼️ [SafetyInspection] \(category) picked: \(Int(image.size.width * image.scale))x\(Int(image.size.height * image.scale)) px, scale=\(image.scale), JPEG(1.0)=\(size) bytes (\(String(format: "%.2f", Double(size) / (1024.0 * 1024.0))) MB)")
     }
-    
-    private func validateImage(_ image: UIImage) -> Bool {
-        let imgSizeMB = imageSizeInMB(image)
-        if imgSizeMB > maxImageSizeMB {
-            showFileSizeAlert(actualSize: imgSizeMB)
-            return false
-        }
-        return true
-    }
-    
-    private func showFileSizeAlert(actualSize: Double) {
+
+    private func showTotalImageSizeAlert() {
         alertManager.show(
-            title: "site_diary_detail_alertTitle_file_size".localized(),
-            message: "site_diary_detail_alertMessage_file_size".localized()
-                .replacingOccurrences(of: "{R1}", with: String(format: "%.2f MB", actualSize)),
+            title: "safety_inspection_detail_alertTitle_image_total_size".localized(),
+            message: "safety_inspection_detail_alertMessage_image_total_size".localized(),
             buttons: [
                 CommonButtonModel(
                     title: "general_confirm".localized(),
@@ -350,7 +339,12 @@ struct SafetyInspectionNewEntryView: View {
                                     readOnly: !viewModel.canEditPartAImages
                                 )
                                 .onChange(of: permitPickerImage) { _, newValue in
-                                    if let img = newValue, validateImage(img) { viewModel.addPermitImage(img) }
+                                    if let img = newValue {
+                                        logPickedImage(img, category: "Permit")
+                                        if !viewModel.addPermitImage(img) {
+                                            showTotalImageSizeAlert()
+                                        }
+                                    }
                                     permitPickerImage = nil
                                 }
                                 
@@ -365,7 +359,12 @@ struct SafetyInspectionNewEntryView: View {
                                     readOnly: !viewModel.canEditPartAImages
                                 )
                                 .onChange(of: raPickerImage) { _, newValue in
-                                    if let img = newValue, validateImage(img) { viewModel.addRAImage(img) }
+                                    if let img = newValue {
+                                        logPickedImage(img, category: "FreshRA")
+                                        if !viewModel.addRAImage(img) {
+                                            showTotalImageSizeAlert()
+                                        }
+                                    }
                                     raPickerImage = nil
                                 }
                             }
@@ -383,7 +382,12 @@ struct SafetyInspectionNewEntryView: View {
                                     readOnly: !viewModel.canEditPartBImages
                                 )
                                 .onChange(of: permitCompletePickerImage) { _, newValue in
-                                    if let img = newValue, validateImage(img) { viewModel.addPermitCompleteImage(img) }
+                                    if let img = newValue {
+                                        logPickedImage(img, category: "Permit-complete")
+                                        if !viewModel.addPermitCompleteImage(img) {
+                                            showTotalImageSizeAlert()
+                                        }
+                                    }
                                     permitCompletePickerImage = nil
                                 }
                             }

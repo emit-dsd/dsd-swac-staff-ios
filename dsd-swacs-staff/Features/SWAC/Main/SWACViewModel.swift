@@ -35,7 +35,7 @@ class SWACViewModel: ObservableObject {
             case .approval:
                 return "today_swac_button_approve_entry"
             case .endorsement:
-                return "today_swac_button_endorse_registation"
+                return "today_swac_button_endorse_registration"
             case .reject:
                 return "today_swac_button_reject"
             case .safetyVetting:

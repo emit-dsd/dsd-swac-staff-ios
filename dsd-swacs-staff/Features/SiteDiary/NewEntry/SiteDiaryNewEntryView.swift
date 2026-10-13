@@ -114,7 +114,7 @@ struct SiteDiaryNewEntryView: View {
     private func showFileSizeAlert(actualSize: Double) {
         alertManager.show(
             title: "site_diary_detail_alertTitle_file_size".localized(),
-            message: String(format: "site_diary_detail_alertMessage_file_size".localized(), String(format: "%.2f", actualSize)),
+            message: "site_diary_detail_alertMessage_file_size".localized().replacingOccurrences(of: "{R1}", with: String(format: "%.2f", actualSize)),
             buttons: [
                 CommonButtonModel(
                     title: "general_confirm".localized(),

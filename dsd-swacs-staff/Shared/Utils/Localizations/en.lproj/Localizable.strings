@@ -168,7 +168,7 @@
 /* Today's SWAC Section */
 "today_swac_sectionTitle_main" = "Today Valid SWAC";
 "today_swac_button_approve_entry" = "Approve Entry";
-"today_swac_button_endorse_registation" = "Endorse Registation";
+"today_swac_button_endorse_registration" = "Endorse Registration";
 "today_swac_button_reject" = "Reject Entry";
 "start_work_alertTitle_approve_msg" = "Approve Site Work Entry Confirmation";
 "start_work_alertMessage_approve_msg" = "This action cannot be undone.";
@@ -190,7 +190,7 @@
 "swac_status_label_approved" = "Approved";
 "swac_status_label_valid_swac" = "Vaild SWAC";
 "swac_status_label_registered_site_work" = "Site Work Entry";
-"swac_status_label_cswr_approve" = "Approved";
+"swac_status_label_cswr_approve" = "Approve";
 "swac_status_label_cswr_endorse" = "Endorse";
 "swac_status_label_cswr_reject" = "Reject";
 
@@ -424,6 +424,8 @@
 "safety_inspection_detail_alertTitle_leave" = "Confirm to leave?";
 "safety_inspection_detail_alertMessage_leave" = "This action cannot be undone.";
 "safety_inspection_detail_button_confirm_leave" = "Confirm Leave";
+"safety_inspection_detail_alertTitle_image_total_size" = "Image size limit reached";
+"safety_inspection_detail_alertMessage_image_total_size" = "The total size of Safety Inspection images cannot exceed 20 MB. This image was not added.";
 
 /* Safety Inspection Checklist  */
 "safety_inspection_checklist_title" = "Safety Inspection";

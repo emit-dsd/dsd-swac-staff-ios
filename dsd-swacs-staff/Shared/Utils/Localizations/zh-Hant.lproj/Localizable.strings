@@ -167,7 +167,7 @@
 /* Today's SWAC Section */
 "today_swac_sectionTitle_main" = "今日有效的工作許可證";
 "today_swac_button_approve_entry" = "批准入場";
-"today_swac_button_endorse_registation" = "認可登記";
+"today_swac_button_endorse_registration" = "認可登記";
 "today_swac_button_reject" = "拒絕入場";
 "start_work_alertTitle_approve_msg" = "確認批准工地工作入場";
 "start_work_alertMessage_approve_msg" = "此操作無法撤銷。";
@@ -421,6 +421,8 @@
 "safety_inspection_detail_alertTitle_leave" = "確認離開？";
 "safety_inspection_detail_alertMessage_leave" = "此操作無法撤銷。";
 "safety_inspection_detail_button_confirm_leave" = "確認離開";
+"safety_inspection_detail_alertTitle_image_total_size" = "圖片容量已達上限";
+"safety_inspection_detail_alertMessage_image_total_size" = "所有圖片的總容量不能超過 20 MB。此圖片未有加入。";
 
 /* Safety Inspection Checklist  */
 "safety_inspection_checklist_title" = "安全檢查";

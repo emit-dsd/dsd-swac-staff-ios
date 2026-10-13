@@ -6,6 +6,7 @@
 //
 import Foundation
 import SwiftUI
+import UIKit
 import Combine
 
 @MainActor
@@ -35,6 +36,9 @@ class SafetyInspectionNewEntryViewModel: ObservableObject {
     private let subjectPermit = "Permit"
     private let subjectFreshRA = "FreshRA"
     private let subjectPermitComplete = "Permit-complete"
+
+    private let targetImageSizeBytes = 1 * 1024 * 1024
+    private let maxTotalImageSizeBytes = 20 * 1024 * 1024
     
     var apiResults: [SafetyInspectionChecklistResult]? = nil
     
@@ -104,9 +108,13 @@ class SafetyInspectionNewEntryViewModel: ObservableObject {
     
     // MARK: - Create Draft Payload
     func createDraftPayload() -> SafetyInspectionDraft {
-        let pData = permitImages.compactMap { $0.image?.jpegData(compressionQuality: 0.8) }
-        let rData = raImages.compactMap { $0.image?.jpegData(compressionQuality: 0.8) }
-        let pcData = permitCompleteImages.compactMap { $0.image?.jpegData(compressionQuality: 0.8) }
+        let pData = compressedData(for: permitImages)
+        let rData = compressedData(for: raImages)
+        let pcData = compressedData(for: permitCompleteImages)
+
+        logDraftImageSizes(category: subjectPermit, data: pData)
+        logDraftImageSizes(category: subjectFreshRA, data: rData)
+        logDraftImageSizes(category: subjectPermitComplete, data: pcData)
         
         return SafetyInspectionDraft(
             id: existingDraftId ?? UUID(),
@@ -176,6 +184,7 @@ class SafetyInspectionNewEntryViewModel: ObservableObject {
         do {
             permitImages.removeAll()
             raImages.removeAll()
+            permitCompleteImages.removeAll()
 
             let items = try await APIService.getDocumentContentItems(attachmentIds: attachmentIds)
 
@@ -212,28 +221,117 @@ class SafetyInspectionNewEntryViewModel: ObservableObject {
     
     // MARK: - Image Management
     
-    func addPermitImage(_ image: UIImage) {
-        permitImages.append(ImageAsset(image: image, caption: ""))
+    @discardableResult
+    func addPermitImage(_ image: UIImage) -> Bool {
+        addImage(image, to: &permitImages, category: subjectPermit)
     }
     
     func removePermitImage() {
         permitImages.removeAll()
     }
     
-    func addRAImage(_ image: UIImage) {
-        raImages.append(ImageAsset(image: image, caption: ""))
+    @discardableResult
+    func addRAImage(_ image: UIImage) -> Bool {
+        addImage(image, to: &raImages, category: subjectFreshRA)
     }
     
     func removeRAImage() {
         raImages.removeAll()
     }
     
-    func addPermitCompleteImage(_ image: UIImage) {
-        permitCompleteImages.append(ImageAsset(image: image, caption: ""))
+    @discardableResult
+    func addPermitCompleteImage(_ image: UIImage) -> Bool {
+        addImage(image, to: &permitCompleteImages, category: subjectPermitComplete)
     }
     
     func removePermitCompleteImage() {
         permitCompleteImages.removeAll()
+    }
+
+    var totalImageSizeMB: Double {
+        let images: [ImageAsset]
+
+        if part == .partB {
+            // Part B uploads Permit-complete images independently.
+            images = permitCompleteImages
+        } else {
+            images = permitImages + raImages + permitCompleteImages
+        }
+
+        let data = compressedData(for: images)
+        return Double(data.reduce(0) { $0 + $1.count }) / (1024.0 * 1024.0)
+    }
+
+    // MARK: - Image Compression
+
+    private func addImage(_ image: UIImage, to images: inout [ImageAsset], category: String) -> Bool {
+        guard let compressedData = compressedData(for: image),
+              let compressedImage = UIImage(data: compressedData) else {
+            return false
+        }
+
+        let originalSize = image.jpegData(compressionQuality: 1.0)?.count ?? 0
+        let compressedSize = compressedData.count
+        let originalMB = Double(originalSize) / (1024.0 * 1024.0)
+        let compressedMB = Double(compressedSize) / (1024.0 * 1024.0)
+        let ratio = originalSize > 0 ? (1.0 - Double(compressedSize) / Double(originalSize)) * 100.0 : 0
+        print("🗜️ [SafetyInspection] \(category) compressed: \(Int(image.size.width * image.scale))x\(Int(image.size.height * image.scale)) px / \(String(format: "%.2f", originalMB)) MB -> \(Int(compressedImage.size.width * compressedImage.scale))x\(Int(compressedImage.size.height * compressedImage.scale)) px / \(String(format: "%.2f", compressedMB)) MB (reduced \(String(format: "%.1f", ratio))%)")
+
+        let existingSize = totalImageSizeMB
+        let newSize = Double(compressedData.count) / (1024.0 * 1024.0)
+        guard (existingSize + newSize) * 1024.0 * 1024.0 <= Double(maxTotalImageSizeBytes) else {
+            return false
+        }
+
+        images.append(ImageAsset(image: compressedImage, caption: ""))
+        return true
+    }
+
+    private func logDraftImageSizes(category: String, data: [Data]) {
+        let totalBytes = data.reduce(0) { $0 + $1.count }
+        let totalMB = Double(totalBytes) / (1024.0 * 1024.0)
+        let sizes = data.map(\.count).map(String.init).joined(separator: ", ")
+        print("📦 [SafetyInspection] Draft \(category): \(data.count) image(s), sizes=[\(sizes)] bytes, total=\(String(format: "%.2f", totalMB)) MB")
+    }
+
+    private func compressedData(for images: [ImageAsset]) -> [Data] {
+        images.compactMap { $0.image.flatMap(compressedData(for:)) }
+    }
+
+    private func compressedData(for image: UIImage) -> Data? {
+        var maxDimension: CGFloat = 2048
+
+        while maxDimension >= 640 {
+            let resizedImage = resizedImage(image, maxDimension: maxDimension)
+
+            for quality in stride(from: 0.85, through: 0.35, by: -0.05) {
+                guard let data = resizedImage.jpegData(compressionQuality: quality) else { continue }
+                if data.count <= targetImageSizeBytes {
+                    return data
+                }
+            }
+
+            maxDimension *= 0.8
+        }
+
+        let finalImage = resizedImage(image, maxDimension: 640)
+        return finalImage.jpegData(compressionQuality: 0.3)
+    }
+
+    private func resizedImage(_ image: UIImage, maxDimension: CGFloat) -> UIImage {
+        let sourceSize = image.size
+        let longestSide = max(sourceSize.width, sourceSize.height)
+        guard longestSide > maxDimension, longestSide > 0 else { return image }
+
+        let scale = maxDimension / longestSide
+        let targetSize = CGSize(width: sourceSize.width * scale, height: sourceSize.height * scale)
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 1
+        format.opaque = true
+
+        return UIGraphicsImageRenderer(size: targetSize, format: format).image { _ in
+            image.draw(in: CGRect(origin: .zero, size: targetSize))
+        }
     }
     
     // MARK: - Reset

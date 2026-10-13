@@ -2497,7 +2497,7 @@
 				CODE_SIGN_ENTITLEMENTS = "dsd-swacs-staff/SupportingFiles/entitlements/dsd-swacs-staff-uat.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 26080501;
+				CURRENT_PROJECT_VERSION = 26083101;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = TKNQ9AL875;
 				ENABLE_PREVIEWS = YES;
@@ -2518,7 +2518,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.26.6;
+				MARKETING_VERSION = 1.26.8;
 				PRODUCT_BUNDLE_IDENTIFIER = hksarg.dsd.swacs.staff.uat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2542,7 +2542,7 @@
 				CODE_SIGN_ENTITLEMENTS = "dsd-swacs-staff/SupportingFiles/entitlements/dsd-swacs-staff-uat.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 26080501;
+				CURRENT_PROJECT_VERSION = 26083101;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = TKNQ9AL875;
 				ENABLE_PREVIEWS = YES;
@@ -2563,7 +2563,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.26.6;
+				MARKETING_VERSION = 1.26.8;
 				PRODUCT_BUNDLE_IDENTIFIER = hksarg.dsd.swacs.staff.uat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2589,7 +2589,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 26061701;
+				CURRENT_PROJECT_VERSION = 26083101;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 9XTXA97VW6;
 				ENABLE_PREVIEWS = YES;
@@ -2610,7 +2610,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.26.6;
+				MARKETING_VERSION = 1.26.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dsd.swacs.staff.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2635,7 +2635,7 @@
 				CODE_SIGN_ENTITLEMENTS = "dsd-swacs-staff/SupportingFiles/entitlements/dsd-swacs-staff-dev.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 26061701;
+				CURRENT_PROJECT_VERSION = 26083101;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 9XTXA97VW6;
 				ENABLE_PREVIEWS = YES;
@@ -2656,7 +2656,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.26.6;
+				MARKETING_VERSION = 1.26.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dsd.swacs.staff.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2680,7 +2680,7 @@
 				CODE_SIGN_ENTITLEMENTS = "dsd-swacs-staff/SupportingFiles/entitlements/dsd-swacs-staff-prod.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 26061701;
+				CURRENT_PROJECT_VERSION = 26083101;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = TKNQ9AL875;
 				ENABLE_PREVIEWS = YES;
@@ -2701,7 +2701,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.26.2;
+				MARKETING_VERSION = 1.26.3;
 				PRODUCT_BUNDLE_IDENTIFIER = hksarg.dsd.swacs.staff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2725,7 +2725,7 @@
 				CODE_SIGN_ENTITLEMENTS = "dsd-swacs-staff/SupportingFiles/entitlements/dsd-swacs-staff-prod.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 26061701;
+				CURRENT_PROJECT_VERSION = 26083101;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = TKNQ9AL875;
 				ENABLE_PREVIEWS = YES;
@@ -2746,7 +2746,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.26.2;
+				MARKETING_VERSION = 1.26.3;
 				PRODUCT_BUNDLE_IDENTIFIER = hksarg.dsd.swacs.staff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
